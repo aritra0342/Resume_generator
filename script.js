@@ -1,48 +1,87 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("resume-form");
     const outputContainer = document.getElementById("output-container");
+    let draggedElement = null;
 
+    // Drag-and-drop implementation
+    const sections = form.querySelectorAll('.form-section');
+    sections.forEach(section => {
+        section.draggable = true;
+        section.addEventListener('dragstart', handleDragStart);
+        section.addEventListener('dragover', handleDragOver);
+        section.addEventListener('dragend', handleDragEnd);
+    });
+
+    function handleDragStart(e) {
+        draggedElement = this;
+        this.classList.add('dragging');
+        e.dataTransfer.setData('text/plain', '');
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(form, e.clientY);
+
+        sections.forEach(section => {
+            section.classList.remove('drag-over-top', 'drag-over-bottom');
+        });
+
+        if (afterElement) {
+            afterElement.classList.add('drag-over-top');
+            form.insertBefore(draggedElement, afterElement);
+        } else {
+            const lastSection = form.querySelector('.form-section:last-child');
+            if (lastSection) lastSection.classList.add('drag-over-bottom');
+            form.insertBefore(draggedElement, form.querySelector('button'));
+        }
+    }
+
+    function handleDragEnd() {
+        this.classList.remove('dragging');
+        sections.forEach(section => {
+            section.classList.remove('drag-over-top', 'drag-over-bottom');
+        });
+    }
+
+    function getDragAfterElement(container, y) {
+        const elements = [...container.querySelectorAll('.form-section:not(.dragging)')];
+        return elements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            return offset < 0 && offset > closest.offset ?
+                   { offset: offset, element: child } : closest;
+        }, { offset: -Infinity }).element;
+    }
+
+    // Fix: Capture all inputs inside sections dynamically
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const formData = new FormData(form);
-        let resumeHTML = `
-            <div class="resume-output">
-                <h1>${formData.get("name")}</h1>
-                <h3>${formData.get("title")}</h3>
-                <p><strong>Email:</strong> ${formData.get("email")}</p>
-                <p><strong>Phone:</strong> ${formData.get("phone")}</p>
-                <p><strong>LinkedIn:</strong> <a href="${formData.get("linkedin")}" target="_blank">${formData.get("linkedin")}</a></p>
-                <p><strong>GitHub:</strong> <a href="${formData.get("github")}" target="_blank">${formData.get("github")}</a></p>
+        let resumeHTML = `<div class="resume-output">`;
 
-                <h2>Professional Summary</h2>
-                <p>${formData.get("summary")}</p>
+        // Select all sections in the current displayed order
+        const formSections = document.querySelectorAll(".form-section");
 
-                <h2>Work Experience</h2>
-                <p>${formData.get("work_experience")}</p>
+        formSections.forEach(section => {
+            const sectionTitle = section.querySelector("h2").innerText;
+            const inputs = section.querySelectorAll("input, textarea");  // Capture all inputs
 
-                <h2>Education</h2>
-                <p>${formData.get("education")}</p>
+            let sectionContent = "";
+            inputs.forEach(input => {
+                if (input.value.trim() !== "") {
+                    sectionContent += `<p><strong>${input.name}:</strong> ${input.value}</p>`;
+                }
+            });
 
-                <h2>Skills</h2>
-                <p>${formData.get("skills")}</p>
+            if (sectionContent) {
+                resumeHTML += `<h2>${sectionTitle}</h2>${sectionContent}`;
+            }
+        });
 
-                <h2>Certifications</h2>
-                <p>${formData.get("certifications")}</p>
-
-                <h2>Projects</h2>
-                <p>${formData.get("projects")}</p>
-
-                <h2>Achievements</h2>
-                <p>${formData.get("achievements")}</p>
-
-                <h2>Languages</h2>
-                <p>${formData.get("languages")}</p>
-
-                <button onclick="window.print()">Print Resume</button>
-                <button onclick="window.location.reload()">Edit Resume</button>
-            </div>
-        `;
+        resumeHTML += `
+            <button onclick="window.print()">Print Resume</button>
+            <button onclick="window.location.reload()">Edit Resume</button>
+        </div>`;
 
         outputContainer.innerHTML = resumeHTML;
         outputContainer.style.display = "block";
