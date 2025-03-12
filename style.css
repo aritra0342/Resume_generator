@@ -105,3 +105,29 @@ button:hover {
         width: 90%;
     }
 }
+.form-section {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: move;
+}
+
+.form-section.dragging {
+    opacity: 0.5;
+    background: #f0f0f0;
+}
+
+.drag-over-top {
+    border-top: 2px solid #1e3c72 !important;
+}
+
+.drag-over-bottom {
+    border-bottom: 2px solid #1e3c72 !important;
+}
+
+.grip-icon {
+    margin-right: 10px;
+    cursor: move;
+}
