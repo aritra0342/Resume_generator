@@ -84,6 +84,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 resumeHTML += `<h2>${sectionTitle}</h2>${sectionContent}`;
             }
         });
+         // Extract key details using FormData
+        const formData = new FormData(form);
+        const personalInfo = `
+            <h1>${formData.get("name")}</h1>
+            <h3>${formData.get("title")}</h3>
+            <p><strong>Email:</strong> ${formData.get("email")}</p>
+            <p><strong>Phone:</strong> ${formData.get("phone")}</p>
+            ${formData.get("linkedin") ? `<p><strong>LinkedIn:</strong> <a href="${formData.get("linkedin")}" target="_blank">${formData.get("linkedin")}</a></p>` : ""}
+            ${formData.get("github") ? `<p><strong>GitHub:</strong> <a href="${formData.get("github")}" target="_blank">${formData.get("github")}</a></p>` : ""}
+        `;
+
+        resumeHTML = personalInfo + resumeHTML; // Add structured personal info at the top
         resumeHTML += `
             <button onclick="window.print()">Print Resume</button>
             <button onclick="window.location.reload()">Edit Resume</button>
