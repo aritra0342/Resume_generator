@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+
     function handleDragStart(e) {
         draggedElement = this;
         this.classList.add("dragging");
@@ -83,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 resumeHTML += `<h2>${sectionTitle}</h2>${sectionContent}`;
             }
         });
-
         resumeHTML += `
             <button onclick="window.print()">Print Resume</button>
             <button onclick="window.location.reload()">Edit Resume</button>
