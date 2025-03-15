@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background: linear-gradient(to right, #2752a2, #1a4ca2, #1b50ac);
     color: #333;
     padding: 20px;
 }
@@ -20,6 +20,7 @@ body {
     min-height: 100vh;
 }
 
+
 .container {
     background: #fff;
     padding: 40px;
@@ -31,12 +32,12 @@ body {
 
 h1 {
     text-align: center;
-    color: #1e3c72;
+    color: #112955;
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #2a5298;
+    color: #1c12d2;
     margin-bottom: 10px;
 }
 
@@ -45,15 +46,20 @@ input, textarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #ebadad;
     border-radius: 5px;
     font-size: 16px;
+    color: #181819;
+}
+input, textarea:hover
+{
+    border: 2px solid #b62323;
 }
 
 /* Buttons */
 button {
     width: 100%;
-    background: #2a5298;
+    background: #182fb2;
     color: #fff;
     padding: 15px;
     border: none;
@@ -62,10 +68,15 @@ button {
     cursor: pointer;
     transition: 0.3s;
     margin-top: 10px;
+    opacity: 0.9;
 }
 
 button:hover {
-    background: #1e3c72;
+    background: #072d74;
+    opacity: 1;
+    transition: 3s ease-in 0.3s;
+    border-radius: 6x;
+    border: 2px solid blue ;
 }
 
 /* Resume Output Styling */
