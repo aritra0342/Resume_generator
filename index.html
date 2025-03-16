@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Creator</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
@@ -15,11 +15,11 @@
             <h1>Resume Creator</h1>
             <form id="resume-form">
                 <div class="form-section">
-                    <h2><span class="grip-icon"></span>Personal Information</h2>
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="text" name="title" placeholder="Job Title" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <h2>Personal Information <span class="required-field">*</span></h2>
+                    <input type="text" name="name" placeholder="Full Name *" required>
+                    <input type="text" name="title" placeholder="Job Title *" required>
+                    <input type="email" name="email" placeholder="Email *" required>
+                    <input type="tel" name="phone" placeholder="Phone Number *" required>
                     <input type="text" name="linkedin" placeholder="LinkedIn Profile">
                     <input type="text" name="github" placeholder="GitHub Profile">
                 </div>
@@ -35,8 +35,8 @@
                 </div>
 
                 <div class="form-section">
-                    <h2>Education</h2>
-                    <textarea name="education" placeholder="Your academic background" rows="3"></textarea>
+                    <h2>Education <span class="required-field">*</span></h2>
+                    <textarea required name="education" placeholder="Your academic background" rows="3"></textarea>
                 </div>
 
                 <div class="form-section">
@@ -60,8 +60,8 @@
                 </div>
 
                 <div class="form-section">
-                    <h2>Languages</h2>
-                    <textarea name="languages" placeholder="Languages you speak" rows="3"></textarea>
+                    <h2>Languages <span class="required-field">*</span></h2>
+                    <textarea required name="languages" placeholder="Languages you speak" rows="3"></textarea>
                 </div>
 
                 <button type="submit">Generate Resume</button>
@@ -71,7 +71,6 @@
 
     <div id="output-container" class="output-container" style="display: none;"></div>
 
-    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
     <script src="script.js"></script>
 </body>
 

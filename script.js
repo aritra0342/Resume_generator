@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const sections = form.querySelectorAll(".form-section");
         sections.forEach((section) => {
-            const sectionTitle = section.querySelector("h2").innerText;
+            const sectionTitle = section.querySelector("h2").innerText.replace(/\s*\*\s*$/, "").trim();
             const inputs = section.querySelectorAll("input, textarea");
             let sectionContent = [];
             
