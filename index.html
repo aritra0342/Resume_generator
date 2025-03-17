@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,4 +103,83 @@
     <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
     <script src="script.js"></script>
 </body>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="resume-builder">
+        <div class="container">
+            <h1>Resume Creator</h1>
+            <form id="resume-form">
+                <div class="form-section">
+                    <h2>Personal Information <span class="required-field">*</span></h2>
+                    <input type="text" name="name" placeholder="Full Name *" required>
+                    <input type="text" name="title" placeholder="Job Title *" required>
+                    <input type="email" name="email" placeholder="Email *" required>
+                    <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    <input type="text" name="linkedin" placeholder="LinkedIn Profile">
+                    <input type="text" name="github" placeholder="GitHub Profile">
+                    <!-- Add Image Upload Button -->
+                    <label for="profile-picture">Upload Profile Picture:</label>
+                    <input type="file" id="profile-picture" accept="image/*">
+                </div>
+
+                <div class="form-section">
+                    <h2>Professional Summary</h2>
+                    <textarea name="summary" placeholder="Brief summary about yourself" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Work Experience</h2>
+                    <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Education <span class="required-field">*</span></h2>
+                    <textarea required name="education" placeholder="Your academic background" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Skills</h2>
+                    <textarea name="skills" placeholder="Your key skills" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Certifications</h2>
+                    <textarea name="certifications" placeholder="Relevant certifications" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Projects</h2>
+                    <textarea name="projects" placeholder="Notable projects" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Achievements</h2>
+                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Languages <span class="required-field">*</span></h2>
+                    <textarea required name="languages" placeholder="Languages you speak" rows="3"></textarea>
+                </div>
+
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="output-container" class="output-container" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>

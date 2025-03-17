@@ -1,3 +1,4 @@
+
 /* General Styles */
 * {
     margin: 0;
@@ -158,7 +159,6 @@ button:hover {
     gap: 10px;
     flex-wrap: wrap;
 }
-
 .export-buttons button {
     width: auto;
     padding: 10px 20px;
