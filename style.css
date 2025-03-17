@@ -50,6 +50,23 @@ input, textarea {
     font-size: 16px;
 }
 
+/* Character Counters */
+.char-counter {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: right;
+    margin-top: 4px;
+    height: 18px;
+}
+
+.char-counter.warning {
+    color: #f39c12;
+}
+
+.char-counter.error {
+    color: #e74c3c;
+}
+
 /* Buttons */
 button {
     width: 100%;
@@ -105,6 +122,8 @@ button:hover {
         width: 90%;
     }
 }
+
+/* Form Sections */
 .form-section {
     margin: 15px 0;
     padding: 15px;
@@ -131,6 +150,8 @@ button:hover {
     margin-right: 10px;
     cursor: move;
 }
+
+/* Export Buttons */
 .export-buttons {
     margin-top: 30px;
     display: flex;

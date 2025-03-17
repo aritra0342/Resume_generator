@@ -3,6 +3,53 @@ document.addEventListener("DOMContentLoaded", function () {
     const outputContainer = document.getElementById("output-container");
     let draggedElement = null;
 
+    // Character limits configuration
+    const CHAR_LIMITS = {
+        name: 50,
+        summary: 250,
+        work_experience: 500,
+        education: 300,
+        skills: 100,
+        certifications: 200,
+        projects: 400,
+        achievements: 150,
+        languages: 100
+    };
+
+    // Smart truncation function (preserves whole words)
+    function truncateText(text, maxLength) {
+        if (text.length <= maxLength) return text;
+        let truncated = text.substr(0, maxLength);
+        const lastSpace = truncated.lastIndexOf(' ');
+        return (lastSpace > 0 ? truncated.substr(0, lastSpace) : truncated) + '...';
+    }
+
+    // Character counter updates
+    function updateCounter(field) {
+        const counter = document.getElementById(field.dataset.counterId);
+        if (!counter) return;
+        
+        const current = field.value.length;
+        const max = parseInt(field.dataset.maxLength);
+        
+        counter.textContent = `${current}/${max}`;
+        counter.className = 'char-counter';
+        
+        if (current >= max * 0.9) counter.classList.add('warning');
+        if (current >= max) counter.classList.add('error');
+    }
+
+    // Initialize character counters
+    document.querySelectorAll('[data-counter-id]').forEach(field => {
+        field.addEventListener('input', function() {
+            if (this.value.length > this.maxLength) {
+                this.value = truncateText(this.value, this.maxLength);
+            }
+            updateCounter(this);
+        });
+        updateCounter(field);
+    });
+
     // Drag-and-drop implementation
     function enableDragAndDrop() {
         const sections = form.querySelectorAll(".form-section");
@@ -61,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     enableDragAndDrop();
 
-    // Make generateDOCX globally accessible
+    // DOCX Generation function
     window.generateDOCX = async function(resumeData) {
         const doc = new docx.Document({
             sections: [{
@@ -118,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    }
+    };
 
     // Form Submission Handler
     form.addEventListener("submit", function (event) {
@@ -126,8 +173,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(form);
 
         const resumeData = {
-            name: formData.get("name"),
-            title: formData.get("title"),
+            name: truncateText(formData.get("name"), CHAR_LIMITS.name),
+            title: truncateText(formData.get("title"), 50),
             email: formData.get("email"),
             phone: formData.get("phone"),
             linkedin: formData.get("linkedin"),
@@ -135,16 +182,18 @@ document.addEventListener("DOMContentLoaded", function () {
             sections: {}
         };
 
-        const sections = form.querySelectorAll(".form-section");
-        sections.forEach((section) => {
+        // Process sections with truncation
+        document.querySelectorAll(".form-section").forEach(section => {
             const sectionTitle = section.querySelector("h2").innerText;
             const inputs = section.querySelectorAll("input, textarea");
             let sectionContent = [];
             
-            inputs.forEach((input) => {
-                if (input.value.trim() !== "") {
-                    sectionContent.push(input.value);
+            inputs.forEach(input => {
+                let value = input.value.trim();
+                if (CHAR_LIMITS[input.name]) {
+                    value = truncateText(value, CHAR_LIMITS[input.name]);
                 }
+                if (value) sectionContent.push(value);
             });
 
             if (sectionContent.length > 0 && !['Personal Information'].includes(sectionTitle)) {
@@ -162,8 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ${resumeData.github ? `<p><strong>GitHub:</strong> <a href="${resumeData.github}" target="_blank">${resumeData.github}</a></p>` : ''}`;
 
         Object.entries(resumeData.sections).forEach(([sectionName, content]) => {
-            resumeHTML += `<h2>${sectionName}</h2>
-                <p>${content.replace(/\n/g, '</p><p>')}</p>`;
+            resumeHTML += `<h2>${sectionName}</h2><p>${content.replace(/\n/g, '</p><p>')}</p>`;
         });
 
         resumeHTML += `
