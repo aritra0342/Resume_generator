@@ -2,6 +2,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("resume-form");
     const outputContainer = document.getElementById("output-container");
     let draggedElement = null;
+    let profilePicture = null;
+
+    // Handle Image Upload
+    document.getElementById('profile-picture').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profilePicture = e.target.result; // Store the image as a base64 string
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
     // Drag-and-drop implementation
     function enableDragAndDrop() {
@@ -132,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
             phone: formData.get("phone"),
             linkedin: formData.get("linkedin"),
             github: formData.get("github"),
+            profilePicture: profilePicture, // Add profile picture to resume data
             sections: {}
         };
 
@@ -154,8 +168,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Generate HTML Output
         let resumeHTML = `<div class="resume-output">
-            <h1>${resumeData.name}</h1>
-            <h3>${resumeData.title}</h3>
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                ${resumeData.profilePicture ? `<img src="${resumeData.profilePicture}" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">` : ''}
+                <div>
+                    <h1>${resumeData.name}</h1>
+                    <h3>${resumeData.title}</h3>
+                </div>
+            </div>
             <p><strong>Email:</strong> ${resumeData.email}</p>
             <p><strong>Phone:</strong> ${resumeData.phone}</p>
             ${resumeData.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${resumeData.linkedin}" target="_blank">${resumeData.linkedin}</a></p>` : ''}

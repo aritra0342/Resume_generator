@@ -96,6 +96,13 @@ button:hover {
   margin: 5px 0;
 }
 
+/* Profile Picture Styling */
+.resume-output img {
+  border: 2px solid #1e3c72;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .container {
@@ -106,6 +113,7 @@ button:hover {
     width: 90%;
   }
 }
+
 .form-section {
   margin: 15px 0;
   padding: 15px;
@@ -132,6 +140,7 @@ button:hover {
   margin-right: 10px;
   cursor: move;
 }
+
 .export-buttons {
   margin-top: 30px;
   display: flex;
@@ -145,9 +154,11 @@ button:hover {
   font-size: 16px;
   flex: 1;
 }
+
 .required-field {
   color: red;
 }
+
 .output-container .required-field {
   display: none;
 }
