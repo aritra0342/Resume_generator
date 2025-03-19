@@ -8,7 +8,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background: linear-gradient(135deg, #0073e6, #00b894, #036d90);
     color: #333;
     padding: 20px;
 }
@@ -21,34 +21,42 @@ body {
     min-height: 100vh;
 }
 
+
 .container {
     background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     width: 60%;
     max-width: 800px;
 }
 
 h1 {
     text-align: center;
-    color: #1e3c72;
-    margin-bottom: 20px;
+    color: #112955;
+    margin-bottom: 30px; 
+    font-weight: bold; 
 }
 
 h2 {
-    color: #2a5298;
-    margin-bottom: 10px;
+    color: #1c12d2;
+    margin-bottom: 15px; 
 }
 
 /* Input Fields */
 input, textarea {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ebadad;
     border-radius: 5px;
     font-size: 16px;
+    color: #181819;
+    transition: border 0.3s; 
+}
+input, textarea:hover
+{
+    border: 2px solid #b62323;
 }
 
 /* Character Counters */
@@ -71,19 +79,26 @@ input, textarea {
 /* Buttons */
 button {
     width: 100%;
-    background: #2a5298;
-    color: #fff;
-    padding: 15px;
-    border: none;
+    background: #182fb2;
     border-radius: 5px;
-    font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
     margin-top: 10px;
+    opacity: 0.9;
+    padding: 12px; 
+    margin-top: 10px; 
+    border: 1px solid #ebadad;
+    font-size: 16px;
+    color: #181819;
+    transition: border 0.3s; 
 }
 
 button:hover {
-    background: #1e3c72;
+    background: #072d74;
+    opacity: 1;
+    transition: 3s ease-in 0.3s;
+    border-radius: 6x;
+    border: 2px solid blue ;
+    transform: scale(1.05);
 }
 
 /* Resume Output Styling */
@@ -126,12 +141,28 @@ button:hover {
 
 /* Form Sections */
 .form-section {
-    margin: 15px 0;
-    padding: 15px;
+    margin: 30px 0;
+    padding: 20px;
     background: #f9f9f9;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: transform 0.2s, opacity 0.2s;
     cursor: move;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    }
+
+.footer-form h2 {
+    color: #1c12d2; /* Consistent color with headings */
+    margin-bottom: 15px;
+}
+
+.footer-form input {
+    width: 80%; /* Adjust width for footer */
+    margin-bottom: 10px; /* Space below input */
+}
+
+.footer-form button {
+    width: 80%; /* Adjust width for footer */
 }
 
 .form-section.dragging {
