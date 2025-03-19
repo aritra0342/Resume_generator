@@ -113,6 +113,8 @@ button:hover {
     margin: 5px 0;
 }
 
+
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .container {
@@ -122,7 +124,15 @@ button:hover {
     .output-container {
         width: 90%;
     }
+
+    /* Improved Mobile Responsiveness */
+    input, textarea, button {
+        font-size: 14px;
+        padding: 12px;
+    }
 }
+
+
 
 /* Form Sections */
 .form-section {
