@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Creator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
 </head>
 <body>
     <section class="resume-builder">
@@ -13,41 +15,39 @@
             <form id="resume-form">
                 <!-- Personal Information -->
                 <div class="form-section">
-                    <h2><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
-                    <input type="text" name="name" placeholder="Full Name *" 
-                           maxlength="50" data-counter-id="name-counter" required>
-                    <div class="char-counter" id="name-counter"></div>
-                    
-                    <input type="text" name="title" placeholder="Job Title *" 
-                           maxlength="50" data-counter-id="title-counter" required>
-                    <div class="char-counter" id="title-counter"></div>
-                    
-                    <input type="email" name="email" placeholder="Email *" required>
-                    <input type="tel" name="phone" placeholder="Phone Number *" required>
-                    <input type="text" name="linkedin" placeholder="LinkedIn Profile">
-                    <input type="text" name="github" placeholder="GitHub Profile">
-                    
-                    <!-- Image Upload -->
-                    <label for="profile-picture">Upload Profile Picture:</label>
-                    <input type="file" id="profile-picture" accept="image/*">
+                    <div class="form-section">
+                        <h2><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
+                        <input type="text" name="name" placeholder="Full Name *" 
+                               maxlength="50" data-counter-id="name-counter" required>
+                        <div class="char-counter" id="name-counter"></div>
+                        
+                        <input type="text" name="title" placeholder="Job Title *" 
+                               maxlength="50" data-counter-id="title-counter" required>
+                        <div class="char-counter" id="title-counter"></div>
+                        
+                        <input type="email" name="email" placeholder="Email *" required>
+                        <input type="tel" name="phone" placeholder="Phone Number *" required>
+                        <input type="text" name="linkedin" placeholder="LinkedIn Profile">
+                        <input type="text" name="github" placeholder="GitHub Profile">
+                        
+                        <!-- Image Upload -->
+                        <label for="profile-picture">Upload Profile Picture:</label>
+                        <input type="file" id="profile-picture" accept="image/*">
+    
                 </div>
 
-                <!-- Professional Summary -->
+                <!-- Summary and Experience -->
                 <div class="form-section">
                     <h2>Professional Summary</h2>
-                    <textarea name="summary" placeholder="Brief summary about yourself" 
-                              rows="3" maxlength="250" data-counter-id="summary-counter"></textarea>
-                    <div class="char-counter" id="summary-counter"></div>
+                    <textarea id="summary" class="resume-input" placeholder="Brief summary about yourself"></textarea>
+                    <button type="button" onclick="generateContent('summary')">AI Generate</button>
                 </div>
 
-                <!-- Work Experience -->
                 <div class="form-section">
                     <h2>Work Experience</h2>
-                    <textarea name="work_experience" placeholder="Previous jobs and roles" 
-                              rows="3" maxlength="500" data-counter-id="experience-counter"></textarea>
-                    <div class="char-counter" id="experience-counter"></div>
+                    <textarea id="experience" class="resume-input" placeholder="Previous jobs and roles"></textarea>
+                    <button type="button" onclick="generateContent('experience')">AI Generate</button>
                 </div>
-
                 <!-- Education -->
                 <div class="form-section">
                     <h2>Education <span class="required-field">*</span></h2>
@@ -97,13 +97,12 @@
                 </div>
 
                 <button type="submit">Generate Resume</button>
+                <button type="button" onclick="downloadResume()">📄 Download PDF</button>
             </form>
         </div>
     </section>
 
     <div id="output-container" class="output-container" style="display: none;"></div>
-
-    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
