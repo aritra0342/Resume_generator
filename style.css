@@ -170,3 +170,38 @@ button:hover {
     font-size: 0.8em;
     vertical-align: super;
 }
+
+#certificates-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.certificate-entry {
+    width: 100%;
+    display: block; /* Ensures block layout */
+    margin-bottom: 10px;
+}
+
+.certificate-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    display: block; /* Ensures each input is on a new line */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.remove-certificate {
+    display: block; /* Keeps the remove button on a new line */
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 6px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}

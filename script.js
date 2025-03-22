@@ -74,66 +74,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     enableDragAndDrop();
 
-    // Make generateDOCX globally accessible
-    window.generateDOCX = async function(resumeData) {
-        const doc = new docx.Document({
-            sections: [{
-                properties: {},
-                children: [
-                    new docx.Paragraph({
-                        text: resumeData.name,
-                        heading: docx.HeadingLevel.TITLE,
-                        spacing: { after: 300 },
-                    }),
-                    new docx.Paragraph({
-                        text: resumeData.title,
-                        heading: docx.HeadingLevel.HEADING_1,
-                        spacing: { after: 200 },
-                    }),
-                    new docx.Paragraph({
-                        children: [
-                            new docx.TextRun({
-                                text: `Email: ${resumeData.email} | Phone: ${resumeData.phone}`,
-                                size: 22,
-                            }),
-                            ...(resumeData.linkedin ? [new docx.TextRun({
-                                text: ` | LinkedIn: ${resumeData.linkedin}`,
-                                size: 22,
-                            })] : []),
-                            ...(resumeData.github ? [new docx.TextRun({
-                                text: ` | GitHub: ${resumeData.github}`,
-                                size: 22,
-                            })] : []),
-                        ],
-                        spacing: { after: 300 },
-                    }),
-                    ...Object.entries(resumeData.sections).map(([sectionName, content]) => [
-                        new docx.Paragraph({
-                            text: sectionName,
-                            heading: docx.HeadingLevel.HEADING_2,
-                            spacing: { before: 200, after: 150 },
-                        }),
-                        new docx.Paragraph({
-                            text: content,
-                            spacing: { after: 200 },
-                        })
-                    ]).flat()
-                ],
-            }],
-        });
+    // ==============================
+    // ✅ CERTIFICATE SECTION CODE ✅
+    // ==============================
+    const certificatesContainer = document.getElementById("certificates-container");
+    const addCertificateButton = document.getElementById("add-certificate");
 
-        const blob = await docx.Packer.toBlob(doc);
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `${resumeData.name.replace(' ', '_')}_Resume.docx`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+    function addCertificate() {
+        const newEntry = document.createElement("div");
+        newEntry.classList.add("certificate-entry");
+        newEntry.innerHTML = `
+            <input type="text" name="certificate_name" placeholder="Certificate Name">
+            <input type="url" name="certificate_link" placeholder="Certificate Link (URL)">
+            <button type="button" class="remove-certificate">❌</button>
+        `;
+        certificatesContainer.appendChild(newEntry);
     }
 
-    // Form Submission Handler
+    addCertificateButton.addEventListener("click", addCertificate);
+
+    certificatesContainer.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-certificate")) {
+            e.target.parentElement.remove();
+        }
+    });
+
+    // ==============================
+    // ✅ FORM SUBMISSION HANDLING ✅
+    // ==============================
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         const formData = new FormData(form);
@@ -145,54 +113,61 @@ document.addEventListener("DOMContentLoaded", function () {
             phone: formData.get("phone"),
             linkedin: formData.get("linkedin"),
             github: formData.get("github"),
-            profilePicture: profilePicture, // Add profile picture to resume data
+            profilePicture: profilePicture,
+            certificates: {},
             sections: {}
         };
 
+        // Collect Certificates
+        document.querySelectorAll(".certificate-entry").forEach(entry => {
+            const name = entry.querySelector("input[name='certificate_name']").value;
+            const link = entry.querySelector("input[name='certificate_link']").value;
+            if (name && link) {
+                resumeData.certificates[name] = link;
+            }
+        });
+
+        // Collect Other Sections
         const sections = form.querySelectorAll(".form-section");
         sections.forEach((section) => {
             const sectionTitle = section.querySelector("h2").innerText.replace(/\s*\*\s*$/, "").trim();
             const inputs = section.querySelectorAll("input, textarea");
             let sectionContent = [];
-            
+
             inputs.forEach((input) => {
                 if (input.value.trim() !== "") {
                     sectionContent.push(input.value);
                 }
             });
 
-            if (sectionContent.length > 0 && !['Personal Information'].includes(sectionTitle)) {
+            if (sectionContent.length > 0 && !['Personal Information', 'Certifications'].includes(sectionTitle)) {
                 resumeData.sections[sectionTitle] = sectionContent.join('\n');
             }
         });
 
-        // Generate HTML Output
+        // Generate Resume HTML
         let resumeHTML = `<div class="resume-output">
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                ${resumeData.profilePicture ? `<img src="${resumeData.profilePicture}" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">` : ''}
-                <div>
-                    <h1>${resumeData.name}</h1>
-                    <h3>${resumeData.title}</h3>
-                </div>
-            </div>
+            <h1>${resumeData.name}</h1>
+            <h3>${resumeData.title}</h3>
             <p><strong>Email:</strong> ${resumeData.email}</p>
             <p><strong>Phone:</strong> ${resumeData.phone}</p>
             ${resumeData.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${resumeData.linkedin}" target="_blank">${resumeData.linkedin}</a></p>` : ''}
             ${resumeData.github ? `<p><strong>GitHub:</strong> <a href="${resumeData.github}" target="_blank">${resumeData.github}</a></p>` : ''}`;
 
+        // Display Certificates
+        if (Object.keys(resumeData.certificates).length > 0) {
+            resumeHTML += `<h2>Certifications</h2><ul>`;
+            for (const [name, link] of Object.entries(resumeData.certificates)) {
+                resumeHTML += `<li>${name} ➡ <a href="${link}" target="_blank">View Certificate</a></li>`;
+            }
+            resumeHTML += `</ul>`;
+        }
+
         Object.entries(resumeData.sections).forEach(([sectionName, content]) => {
-            resumeHTML += `<h2>${sectionName}</h2>
-                <p>${content.replace(/\n/g, '</p><p>')}</p>`;
+            resumeHTML += `<h2>${sectionName}</h2><p>${content.replace(/\n/g, '</p><p>')}</p>`;
         });
 
-        resumeHTML += `
-            <div class="export-buttons">
-                <button onclick="window.print()">Print PDF</button>
-                <button onclick="generateDOCX(${JSON.stringify(resumeData).replace(/"/g, '&quot;')})">Download DOCX</button>
-                <button onclick="window.location.reload()">Edit Resume</button>
-            </div>
-        </div>`;
-
+        resumeHTML += `</div>`;
         outputContainer.innerHTML = resumeHTML;
         outputContainer.style.display = "block";
         form.style.display = "none";
