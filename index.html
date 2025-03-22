@@ -1,109 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Creator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <section class="resume-builder">
-        <div class="container">
-            <h1>Resume Creator</h1>
-            <form id="resume-form">
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h2><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
-                    <input type="text" name="name" placeholder="Full Name *" 
-                           maxlength="50" data-counter-id="name-counter" required>
-                    <div class="char-counter" id="name-counter"></div>
-                    
-                    <input type="text" name="title" placeholder="Job Title *" 
-                           maxlength="50" data-counter-id="title-counter" required>
-                    <div class="char-counter" id="title-counter"></div>
-                    
-                    <input type="email" name="email" placeholder="Email *" required>
-                    <input type="tel" name="phone" placeholder="Phone Number *" required>
-                    <input type="text" name="linkedin" placeholder="LinkedIn Profile">
-                    <input type="text" name="github" placeholder="GitHub Profile">
-                    
-                    <!-- Image Upload -->
-                    <label for="profile-picture">Upload Profile Picture:</label>
-                    <input type="file" id="profile-picture" accept="image/*">
-                </div>
+Resume Builder 📝
+A simple and professional resume generator built using HTML, CSS, and JavaScript. This project allows users to dynamically create resumes, customize their details, and export them in various formats.
 
-                <!-- Professional Summary -->
-                <div class="form-section">
-                    <h2>Professional Summary</h2>
-                    <textarea name="summary" placeholder="Brief summary about yourself" 
-                              rows="3" maxlength="250" data-counter-id="summary-counter"></textarea>
-                    <div class="char-counter" id="summary-counter"></div>
-                </div>
+Features 🚀
+✅ User-friendly input form with live character counters
+✅ Dynamic resume generation in real-time
+✅ Drag-and-drop functionality to reorder sections
+✅ Profile picture upload for personalized resumes
+✅ Print & Download options (DOCX & PDF)
+✅ Responsive & modern UI
 
-                <!-- Work Experience -->
-                <div class="form-section">
-                    <h2>Work Experience</h2>
-                    <textarea name="work_experience" placeholder="Previous jobs and roles" 
-                              rows="3" maxlength="500" data-counter-id="experience-counter"></textarea>
-                    <div class="char-counter" id="experience-counter"></div>
-                </div>
+Demo 🌐
+Live Demo: https://resume-generator-indol-psi.vercel.app/
 
-                <!-- Education -->
-                <div class="form-section">
-                    <h2>Education <span class="required-field">*</span></h2>
-                    <textarea name="education" placeholder="Your academic background *" 
-                              rows="3" maxlength="300" data-counter-id="education-counter" required></textarea>
-                    <div class="char-counter" id="education-counter"></div>
-                </div>
+Installation & Usage 📌
+1️⃣ Clone the Repository
+bash
+Copy
+Edit
+git clone https://github.com/aritra0342/Resume_generator.git
+cd Resume_generator
+2️⃣ Open the Project
+Simply open the index.html file in your browser.
 
-                <!-- Skills -->
-                <div class="form-section">
-                    <h2>Skills</h2>
-                    <textarea name="skills" placeholder="Your key skills" 
-                              rows="3" maxlength="100" data-counter-id="skills-counter"></textarea>
-                    <div class="char-counter" id="skills-counter"></div>
-                </div>
+3️⃣ Usage Steps
+Fill in your personal details and upload a profile picture (optional).
 
-                <!-- Certifications -->
-                <div class="form-section">
-                    <h2>Certifications</h2>
-                    <textarea name="certifications" placeholder="Relevant certifications" 
-                              rows="3" maxlength="200" data-counter-id="certifications-counter"></textarea>
-                    <div class="char-counter" id="certifications-counter"></div>
-                </div>
+Add information in sections like Work Experience, Education, Skills, and Projects.
 
-                <!-- Projects -->
-                <div class="form-section">
-                    <h2>Projects</h2>
-                    <textarea name="projects" placeholder="Notable projects" 
-                              rows="3" maxlength="400" data-counter-id="projects-counter"></textarea>
-                    <div class="char-counter" id="projects-counter"></div>
-                </div>
+Drag and drop sections to reorder them.
 
-                <!-- Achievements -->
-                <div class="form-section">
-                    <h2>Achievements</h2>
-                    <textarea name="achievements" placeholder="Awards and recognitions" 
-                              rows="3" maxlength="150" data-counter-id="achievements-counter"></textarea>
-                    <div class="char-counter" id="achievements-counter"></div>
-                </div>
+Click on Generate Resume to preview.
 
-                <!-- Languages -->
-                <div class="form-section">
-                    <h2>Languages <span class="required-field">*</span></h2>
-                    <textarea name="languages" placeholder="Languages you speak *" 
-                              rows="3" maxlength="100" data-counter-id="languages-counter" required></textarea>
-                    <div class="char-counter" id="languages-counter"></div>
-                </div>
+Use the Print PDF or Download DOCX options to save your resume.
 
-                <button type="submit">Generate Resume</button>
-            </form>
-        </div>
-    </section>
+Click Edit Resume to modify details.
 
-    <div id="output-container" class="output-container" style="display: none;"></div>
+Technologies Used 🛠
+HTML5 – Structuring the form and resume layout
 
-    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+CSS3 – Styling for a modern UI
+
+JavaScript (ES6+) – Form handling, drag-and-drop, dynamic resume creation
+
+docx.js – Exporting resumes in .docx format
+
+Folder Structure 📂
+bash
+Copy
+Edit
+Resume_generator/
+│── index.html       # Main webpage
+│── style.css        # Styling
+│── script.js        # JavaScript logic
+│── README.md        # Documentation
+Contributing 🤝
+🚀 Want to improve this project? Follow these steps:
+
+Fork the repository
+
+Create a new branch: git checkout -b feature-branch
+
+Make your changes and commit: git commit -m "Added new feature"
+
+Push to your fork: git push origin feature-branch
+
+Create a pull request
+
+License 📜
+This project is open-source under the MIT License.
+
