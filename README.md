@@ -1,7 +1,7 @@
-###Resume Builder 📝
+Resume Builder 📝
 A simple and professional resume generator built using HTML, CSS, and JavaScript. This project allows users to dynamically create resumes, customize their details, and export them in various formats.
 
-###Features 🚀
+Features 🚀
 ✅ User-friendly input form with live character counters
 ✅ Dynamic resume generation in real-time
 ✅ Drag-and-drop functionality to reorder sections
@@ -9,10 +9,10 @@ A simple and professional resume generator built using HTML, CSS, and JavaScript
 ✅ Print & Download options (DOCX & PDF)
 ✅ Responsive & modern UI
 
-###Demo 🌐
+Demo 🌐
 Live Demo: https://resume-generator-indol-psi.vercel.app/
 
-###Installation & Usage 📌
+Installation & Usage 📌
 1️⃣ Clone the Repository
 bash
 Copy
