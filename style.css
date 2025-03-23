@@ -235,6 +235,7 @@ button {
         width: 90%;
     }
 
+
 }
 /* Form Sections */
 .form-section {
@@ -245,12 +246,14 @@ button {
     transition: transform 0.2s, opacity 0.2s;
     cursor: move;
 
+
 }
 /* Light Mode Form Section */
 .light-mode .form-section {
     background: #f9f9f9;
     color: black;
     border: 1px solid #ddd;
+
 }
 
 /* Dark Mode Form Section */

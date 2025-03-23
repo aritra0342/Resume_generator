@@ -29,6 +29,125 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("theme", isDarkMode ? "dark" : "light");
         });
     }
+    // Function to enable dark/light mode
+function toggleDarkMode() {
+    const body = document.body;
+    const form = document.getElementById("form-container"); // Adjust according to your form's ID
+
+    if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+        localStorage.setItem("theme", "light");
+    } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+    }
+
+    // Re-enable drag-and-drop after toggling
+    enableDragAndDrop();
+}
+
+// Load theme from localStorage
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.body.classList.add(savedTheme);
+    enableDragAndDrop();
+});
+
+// =============================
+// ✅ DRAG-AND-DROP HANDLING ✅
+// =============================
+function enableDragAndDrop() {
+    const form = document.getElementById("form-container"); // Ensure you have this ID
+    const sections = form.querySelectorAll(".form-section");
+
+    sections.forEach((section) => {
+        section.draggable = true;
+
+        // Remove previous event listeners to avoid duplication
+        section.removeEventListener("dragstart", handleDragStart);
+        section.removeEventListener("dragover", handleDragOver);
+        section.removeEventListener("dragend", handleDragEnd);
+
+        // Add new event listeners
+        section.addEventListener("dragstart", handleDragStart);
+        section.addEventListener("dragover", handleDragOver);
+        section.addEventListener("dragend", handleDragEnd);
+    });
+}
+
+function handleDragStart(e) {
+    draggedElement = this;
+    this.classList.add("dragging");
+    e.dataTransfer.setData("text/plain", "");
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    const form = document.getElementById("form-container");
+    const afterElement = getDragAfterElement(form, e.clientY);
+    const sections = document.querySelectorAll(".form-section");
+
+    sections.forEach((section) => {
+        section.classList.remove("drag-over-top", "drag-over-bottom");
+    });
+
+    if (afterElement) {
+        afterElement.classList.add("drag-over-top");
+        form.insertBefore(draggedElement, afterElement);
+    } else {
+        const lastSection = form.querySelector(".form-section:last-child");
+        if (lastSection) lastSection.classList.add("drag-over-bottom");
+        form.insertBefore(draggedElement, form.querySelector("button"));
+    }
+}
+
+function handleDragEnd() {
+    this.classList.remove("dragging");
+    const sections = document.querySelectorAll(".form-section");
+    sections.forEach((section) => {
+        section.classList.remove("drag-over-top", "drag-over-bottom");
+    });
+}
+
+function getDragAfterElement(container, y) {
+    const elements = [...container.querySelectorAll(".form-section:not(.dragging)")];
+    return elements.reduce(
+        (closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            return offset < 0 && offset > closest.offset ? { offset: offset, element: child } : closest;
+        },
+        { offset: -Infinity }
+    ).element;
+}
+
+// =============================
+// ✅ CERTIFICATE SECTION CODE ✅
+// =============================
+const certificatesContainer = document.getElementById("certificates-container");
+const addCertificateButton = document.getElementById("add-certificate");
+
+function addCertificate() {
+    const newEntry = document.createElement("div");
+    newEntry.classList.add("certificate-entry");
+    newEntry.innerHTML = `
+        <input type="text" name="certificate_name" placeholder="Certificate Name">
+        <input type="url" name="certificate_link" placeholder="Certificate Link (URL)">
+        <button type="button" class="remove-certificate"><i class="fa-solid fa-xmark"></i> Remove</button>
+    `;
+    certificatesContainer.appendChild(newEntry);
+}
+
+addCertificateButton.addEventListener("click", addCertificate);
+
+certificatesContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("remove-certificate")) {
+        e.target.parentElement.remove();
+    }
+});
+
 
     // Form Submission Handler (Fixes Page Refresh Issue)
     form.addEventListener("submit", function (event) {
