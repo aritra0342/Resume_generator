@@ -51,6 +51,16 @@ input, textarea {
     font-size: 16px;
 }
 
+textarea {
+    resize: none;
+    overflow: auto; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: block;
+    line-height: 1.5;
+    padding: 5px;
+}
+
 /* Character Counters */
 .char-counter {
     font-size: 0.8rem;
@@ -212,9 +222,14 @@ button:hover {
     color: white;
     border: none;
     cursor: pointer;
-    padding: 6px 10px;
+    padding: 8px 10px;
     font-size: 18px;
     border-radius: 5px;
+}
+
+
+.remove-certificate:hover i{
+    color: red;
 }
 
 
