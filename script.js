@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         newEntry.innerHTML = `
             <input type="text" name="certificate_name" placeholder="Certificate Name">
             <input type="url" name="certificate_link" placeholder="Certificate Link (URL)">
-            <button type="button" class="remove-certificate">❌</button>
+            <button type="button" class="remove-certificate"><i class="fa-solid fa-xmark"></i> Remove</button>
         `;
         certificatesContainer.appendChild(newEntry);
     }
