@@ -157,6 +157,35 @@ input, textarea {
     font-size: 16px;
 }
 
+
+textarea {
+    resize: none;
+    overflow: auto; 
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    display: block;
+    line-height: 1.5;
+    padding: 5px;
+}
+
+/* Character Counters */
+.char-counter {
+    font-size: 0.8rem;
+    color: #666;
+    text-align: right;
+    margin-top: 4px;
+    height: 18px;
+}
+
+.char-counter.warning {
+    color: #f39c12;
+}
+
+.char-counter.error {
+    color: #e74c3c;
+}
+
+
 /* Buttons */
 button {
     width: 100%;
@@ -205,4 +234,5 @@ button {
     .output-container {
         width: 90%;
     }
+
 }
