@@ -19,10 +19,22 @@
                     <input type="text" name="name" placeholder="Full Name *" required>
                     <input type="text" name="title" placeholder="Job Title *" required>
                     <input type="email" name="email" placeholder="Email *" required>
+                    <br/>
+                    <br/>
                     <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    <br/>
+                    <br/>
                     <input type="text" name="linkedin" placeholder="LinkedIn Profile">
+                    <br/>
+                    <br/>
                     <input type="text" name="github" placeholder="GitHub Profile">
-                    <!-- Add Image Upload Button -->
+
+                    <!-- Add Image Upload Button --
+                    
+                    <!-- Image Upload -->
+                     <br/>
+                     <br/>
+                     <br/
                     <label for="profile-picture">Upload Profile Picture:</label>
                     <input type="file" id="profile-picture" accept="image/*">
                 </div>
@@ -47,10 +59,77 @@
                     <textarea name="skills" placeholder="Your key skills" rows="3"></textarea>
                 </div>
 
+
+                <!-- Certifications -->
+                    <div class="form-section" id="certificates-section">
+                        <h2>Certifications</h2>
+                        <div id="certificates-container">
+                            <div class="certificate-entry">
+                                
+                                    <input type="text" name="certificate_name" placeholder="Certificate Name" class="certificate-input">
+                                    <input type="url" name="certificate_link" placeholder="Certificate Link (URL)" class="certificate-input">
+                                
+                                
+                                <button type="button" class="remove-certificate">❌</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-certificate">➕ Add Another</button>
+                    </div>
+
+
+
                 <div class="form-section">
-                    <h2>Certifications</h2>
-                    <textarea name="certifications" placeholder="Relevant certifications" rows="3"></textarea>
+                    <h2>Projects</h2>
+                    <textarea name="projects" placeholder="Notable projects" rows="3"></textarea>
                 </div>
+
+                <div class="form-section">
+                    <h2>Achievements</h2>
+                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Languages <span class="required-field">*</span></h2>
+                    <textarea required name="languages" placeholder="Languages you speak" rows="3"></textarea>
+                </div>
+
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="output-container" class="output-container" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+                    <textarea required name="education" placeholder="Your academic background" rows="3"></textarea>
+                </div>
+
+                <div class="form-section">
+                    <h2>Skills</h2>
+                    <textarea name="skills" placeholder="Your key skills" rows="3"></textarea>
+                </div>
+
+
+                <!-- Certifications -->
+                    <div class="form-section" id="certificates-section">
+                        <h2>Certifications</h2>
+                        <div id="certificates-container">
+                            <div class="certificate-entry">
+                                
+                                    <input type="text" name="certificate_name" placeholder="Certificate Name" class="certificate-input">
+                                    <input type="url" name="certificate_link" placeholder="Certificate Link (URL)" class="certificate-input">
+                                
+                                
+                                <button type="button" class="remove-certificate">❌</button>
+                            </div>
+                        </div>
+                        <button type="button" id="add-certificate">➕ Add Another</button>
+                    </div>
+
+
 
                 <div class="form-section">
                     <h2>Projects</h2>
