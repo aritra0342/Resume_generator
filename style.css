@@ -1,235 +1,259 @@
+/*Import poppins font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    color: #333;
-    padding: 20px;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #333;
+  padding: 20px;
 }
 
 /* Form Container */
 .resume-builder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 800px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  max-width: 800px;
 }
 
 h1 {
-    text-align: center;
-    color: #1e3c72;
-    margin-bottom: 20px;
+  text-align: center;
+  color: #1e3c72;
+  margin-bottom: 20px;
 }
 
 h2 {
-    color: #2a5298;
-    margin-bottom: 10px;
+  color: #2a5298;
+  margin-bottom: 10px;
 }
 
 /* Input Fields */
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 textarea {
-    resize: none;
-    overflow: auto; 
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    display: block;
-    line-height: 1.5;
-    padding: 5px;
+  resize: none;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: block;
+  line-height: 1.5;
+  padding: 5px;
 }
 
 /* Character Counters */
 .char-counter {
-    font-size: 0.8rem;
-    color: #666;
-    text-align: right;
-    margin-top: 4px;
-    height: 18px;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: right;
+  margin-top: 4px;
+  height: 18px;
 }
 
 .char-counter.warning {
-    color: #f39c12;
+  color: #f39c12;
 }
 
 .char-counter.error {
-    color: #e74c3c;
+  color: #e74c3c;
 }
 
 /* Buttons */
 button {
-    width: 100%;
-    background: #2a5298;
-    color: #fff;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-top: 10px;
+  width: 100%;
+  background: #2a5298;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
-    background: #1e3c72;
+  background: #1e3c72;
 }
 
 /* Resume Output Styling */
 .output-container {
-    width: 60%;
-    margin: 20px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin: 20px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .resume-output h1 {
-    color: #1e3c72;
-    text-align: center;
-    font-size: 28px;
+  color: #1e3c72;
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 0;
 }
 
 .resume-output h2 {
-    color: #2a5298;
-    margin-top: 20px;
+  color: #2a5298;
+  margin-top: 20px;
 }
-
+.resume-output h3 {
+  font-size: 25px;
+}
 .resume-output p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin: 5px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
 }
-
+.resume-output div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 0.4em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+.resume-output div p:nth-of-type(3) {
+  text-decoration: none;
+  grid-column: span 2;
+  text-align: center;
+}
+.resume-output div p:nth-of-type(3) a {
+  text-decoration: none;
+}
+.resume-output div p:nth-of-type(4) {
+  text-decoration: none;
+  grid-column: span 2;
+  text-align: center;
+}
+.resume-output div p:nth-of-type(4) a {
+  text-decoration: none;
+}
+hr {
+  margin-bottom: 20px;
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
+  .container {
+    width: 90%;
+  }
 
-    .output-container {
-        width: 90%;
-    }
-    
-
-   
+  .output-container {
+    width: 90%;
+  }
 }
 
 /* Form Sections */
 .form-section {
-    margin: 15px 0;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 5px;
-    transition: transform 0.2s, opacity 0.2s;
-    cursor: move;
-    
+  margin: 15px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: move;
 }
 
 /* Hover Effect */
 .form-section:hover {
-    transform: scale(1.02); /* Slightly enlarges the section */
-    background: #f0f0f0; /* Lighter shade on hover */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
+  transform: scale(1.02); /* Slightly enlarges the section */
+  background: #f0f0f0; /* Lighter shade on hover */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
 }
 
 .form-section.dragging {
-    opacity: 0.5;
-    background: #f0f0f0;
+  opacity: 0.5;
+  background: #f0f0f0;
 }
 
 .drag-over-top {
-    border-top: 2px solid #1e3c72 !important;
+  border-top: 2px solid #1e3c72 !important;
 }
 
 .drag-over-bottom {
-    border-bottom: 2px solid #1e3c72 !important;
+  border-bottom: 2px solid #1e3c72 !important;
 }
 
 .grip-icon {
-    margin-right: 10px;
-    cursor: move;
+  margin-right: 10px;
+  cursor: move;
 }
 
 /* Export Buttons */
 .export-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .export-buttons button {
-    width: auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    flex: 1;
+  width: auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  flex: 1;
 }
 .required-field {
-    color: #e74c3c;
-    font-size: 0.8em;
-    vertical-align: super;
+  color: #e74c3c;
+  font-size: 0.8em;
+  vertical-align: super;
 }
 
 #certificates-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .certificate-entry {
-    width: 100%;
-    display: block; /* Ensures block layout */
-    margin-bottom: 10px;
+  width: 100%;
+  display: block; /* Ensures block layout */
+  margin-bottom: 10px;
 }
 
 .certificate-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    display: block; /* Ensures each input is on a new line */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  display: block; /* Ensures each input is on a new line */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .remove-certificate {
-    display: block; /* Keeps the remove button on a new line */
-    margin-top: 5px;
-    background-color: red;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 8px 10px;
-    font-size: 18px;
-    border-radius: 5px;
+  display: block; /* Keeps the remove button on a new line */
+  margin-top: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  font-size: 18px;
+  border-radius: 5px;
 }
 
-
-.remove-certificate:hover i{
-    color: red;
+.remove-certificate:hover i {
+  color: red;
 }
-
-

@@ -148,11 +148,15 @@ document.addEventListener("DOMContentLoaded", function () {
         // Generate Resume HTML
         let resumeHTML = `<div class="resume-output">
             <h1>${resumeData.name}</h1>
+            <div>
+            <p> <strong>Email: </strong>${resumeData.email}</p>
+            <p><strong>Tel: </strong> ${resumeData.phone} </p>
+            ${resumeData.linkedin ? `<p><strong>LinkedIn: </strong><a href="${resumeData.linkedin}" target="_blank">${resumeData.linkedin}  </a></p>` : ''}
+            ${resumeData.github ? `<p><strong>GitHub: </strong> <a href="${resumeData.github}" target="_blank">${resumeData.github}</a></p>` : ''}
+            </div>
+            <hr>
             <h3>${resumeData.title}</h3>
-            <p><strong>Email:</strong> ${resumeData.email}</p>
-            <p><strong>Phone:</strong> ${resumeData.phone}</p>
-            ${resumeData.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${resumeData.linkedin}" target="_blank">${resumeData.linkedin}</a></p>` : ''}
-            ${resumeData.github ? `<p><strong>GitHub:</strong> <a href="${resumeData.github}" target="_blank">${resumeData.github}</a></p>` : ''}`;
+            `;
 
         // Display Certificates
         if (Object.keys(resumeData.certificates).length > 0) {
