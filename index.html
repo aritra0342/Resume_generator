@@ -10,12 +10,13 @@
 </head>
 
 <body>
+    <button class="theme-toggle">🌙 Dark Mode</button>
     <section class="resume-builder">
         <div class="container">
             <h1>Resume Creator</h1>
             <form id="resume-form">
-                <!-- Personal Information -->
                 <div class="form-section">
+
                     <h2><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
                     <input type="text" name="name" placeholder="Full Name *" maxlength="50"
                         data-counter-id="name-counter" required>
@@ -44,36 +45,38 @@
                     <input type="file" id="profile-picture" accept="image/*">
                 </div>
 
-                <!-- Professional Summary -->
                 <div class="form-section">
                     <h2>Professional Summary</h2>
                     <textarea name="summary" placeholder="Brief summary about yourself" rows="3" maxlength="250"
                         data-counter-id="summary-counter"></textarea>
                     <div class="char-counter" id="summary-counter"></div>
+
                 </div>
 
-                <!-- Work Experience -->
                 <div class="form-section">
                     <h2>Work Experience</h2>
+
                     <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3" maxlength="500"
                         data-counter-id="experience-counter"></textarea>
                     <div class="char-counter" id="experience-counter"></div>
+
                 </div>
 
-                <!-- Education -->
                 <div class="form-section">
                     <h2>Education <span class="required-field">*</span></h2>
                     <textarea name="education" placeholder="Your academic background *" rows="3" maxlength="300"
                         data-counter-id="education-counter" required></textarea>
                     <div class="char-counter" id="education-counter"></div>
+
                 </div>
 
-                <!-- Skills -->
                 <div class="form-section">
                     <h2>Skills</h2>
+
                     <textarea name="skills" placeholder="Your key skills" rows="3" maxlength="100"
                         data-counter-id="skills-counter"></textarea>
                     <div class="char-counter" id="skills-counter"></div>
+
                 </div>
 
                 <!-- Certifications -->
@@ -96,25 +99,27 @@
                 </div>
 
 
-                <!-- Projects -->
+
                 <div class="form-section">
                     <h2>Projects</h2>
                     <textarea name="projects" placeholder="Notable projects" rows="3" maxlength="400"
                         data-counter-id="projects-counter"></textarea>
                     <div class="char-counter" id="projects-counter"></div>
+
                 </div>
 
-                <!-- Achievements -->
                 <div class="form-section">
                     <h2>Achievements</h2>
+
                     <textarea name="achievements" placeholder="Awards and recognitions" rows="3" maxlength="150"
                         data-counter-id="achievements-counter"></textarea>
                     <div class="char-counter" id="achievements-counter"></div>
+
                 </div>
 
-                <!-- Languages -->
                 <div class="form-section">
                     <h2>Languages <span class="required-field">*</span></h2>
+
                     <textarea name="languages" placeholder="Languages you speak *" rows="3" maxlength="100"
                         data-counter-id="languages-counter" required></textarea>
                     <div class="char-counter" id="languages-counter"></div>
@@ -127,7 +132,6 @@
 
     <div id="output-container" class="output-container" style="display: none;"></div>
 
-    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
     <script src="script.js"></script>
 </body>
 
