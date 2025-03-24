@@ -16,85 +16,113 @@
             <h1>Resume Creator</h1>
             <form id="resume-form">
                 <div class="form-section">
-                    <h2>Personal Information <span class="required-field">*</span></h2>
-                    <input type="text" name="name" placeholder="Full Name *" required>
-                    <input type="text" name="title" placeholder="Job Title *" required>
+
+                    <h2><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
+                    <input type="text" name="name" placeholder="Full Name *" maxlength="50"
+                        data-counter-id="name-counter" required>
+                    <div class="char-counter" id="name-counter"></div>
+
+                    <input type="text" name="title" placeholder="Job Title *" maxlength="50"
+                        data-counter-id="title-counter" required>
+                    <div class="char-counter" id="title-counter"></div>
+
                     <input type="email" name="email" placeholder="Email *" required>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <input type="tel" name="phone" placeholder="Phone Number *" required>
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <input type="text" name="linkedin" placeholder="LinkedIn Profile">
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     <input type="text" name="github" placeholder="GitHub Profile">
-                    <!-- Add Image Upload Button -->
-                    
+
                     <!-- Image Upload -->
-                     <br/>
-                     <br/>
-                     <br/>
+                    <br />
+                    <br />
+                    <br />
                     <label for="profile-picture">Upload Profile Picture:</label>
                     <input type="file" id="profile-picture" accept="image/*">
                 </div>
 
                 <div class="form-section">
                     <h2>Professional Summary</h2>
-                    <textarea name="summary" placeholder="Brief summary about yourself" rows="3"></textarea>
+                    <textarea name="summary" placeholder="Brief summary about yourself" rows="3" maxlength="250"
+                        data-counter-id="summary-counter"></textarea>
+                    <div class="char-counter" id="summary-counter"></div>
+
                 </div>
 
                 <div class="form-section">
                     <h2>Work Experience</h2>
-                    <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3"></textarea>
+
+                    <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3" maxlength="500"
+                        data-counter-id="experience-counter"></textarea>
+                    <div class="char-counter" id="experience-counter"></div>
+
                 </div>
 
                 <div class="form-section">
                     <h2>Education <span class="required-field">*</span></h2>
-                    <textarea required name="education" placeholder="Your academic background" rows="3"></textarea>
+                    <textarea name="education" placeholder="Your academic background *" rows="3" maxlength="300"
+                        data-counter-id="education-counter" required></textarea>
+                    <div class="char-counter" id="education-counter"></div>
+
                 </div>
 
                 <div class="form-section">
                     <h2>Skills</h2>
-                    <textarea name="skills" placeholder="Your key skills" rows="3"></textarea>
-                </div>
 
-                <div class="form-section">
-                    <h2>Certifications</h2>
-                    <textarea name="certifications" placeholder="Relevant certifications" rows="3"></textarea>
+                    <textarea name="skills" placeholder="Your key skills" rows="3" maxlength="100"
+                        data-counter-id="skills-counter"></textarea>
+                    <div class="char-counter" id="skills-counter"></div>
+
                 </div>
 
                 <!-- Certifications -->
-                    <div class="form-section" id="certificates-section">
-                        <h2>Certifications</h2>
-                        <div id="certificates-container">
-                            <div class="certificate-entry">
-                                
-                                    <input type="text" name="certificate_name" placeholder="Certificate Name" class="certificate-input">
-                                    <input type="url" name="certificate_link" placeholder="Certificate Link (URL)" class="certificate-input">
-                                
-                                
-                                <button type="button" class="remove-certificate"><i class="fa-solid fa-xmark"></i> Remove</button>
-                            </div>
+                <div class="form-section" id="certificates-section">
+                    <h2>Certifications</h2>
+                    <div id="certificates-container">
+                        <div class="certificate-entry">
+
+                            <input type="text" name="certificate_name" placeholder="Certificate Name"
+                                class="certificate-input">
+                            <input type="url" name="certificate_link" placeholder="Certificate Link (URL)"
+                                class="certificate-input">
+
+
+                            <button type="button" class="remove-certificate"><i class="fa-solid fa-xmark"></i>
+                                Remove</button>
                         </div>
-                        <button type="button" id="add-certificate">➕ Add Another</button>
                     </div>
+                    <button type="button" id="add-certificate">➕ Add Another</button>
+                </div>
 
 
 
                 <div class="form-section">
                     <h2>Projects</h2>
-                    <textarea name="projects" placeholder="Notable projects" rows="3"></textarea>
+                    <textarea name="projects" placeholder="Notable projects" rows="3" maxlength="400"
+                        data-counter-id="projects-counter"></textarea>
+                    <div class="char-counter" id="projects-counter"></div>
+
                 </div>
 
                 <div class="form-section">
                     <h2>Achievements</h2>
-                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3"></textarea>
+
+                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3" maxlength="150"
+                        data-counter-id="achievements-counter"></textarea>
+                    <div class="char-counter" id="achievements-counter"></div>
+
                 </div>
 
                 <div class="form-section">
                     <h2>Languages <span class="required-field">*</span></h2>
-                    <textarea required name="languages" placeholder="Languages you speak" rows="3"></textarea>
+
+                    <textarea name="languages" placeholder="Languages you speak *" rows="3" maxlength="100"
+                        data-counter-id="languages-counter" required></textarea>
+                    <div class="char-counter" id="languages-counter"></div>
                 </div>
 
                 <button type="submit">Generate Resume</button>

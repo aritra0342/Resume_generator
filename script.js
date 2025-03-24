@@ -186,6 +186,7 @@ certificatesContainer.addEventListener("click", function (e) {
 
         // Generate Resume Output
         let resumeHTML = `<div class="resume-output">
+
             <div style="display: flex; align-items: center; margin-bottom: 20px;">
                 ${resumeData.profilePicture ? `<img src="${resumeData.profilePicture}" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; margin-right: 20px;">` : ''}
                 <div>
@@ -197,7 +198,6 @@ certificatesContainer.addEventListener("click", function (e) {
             <p><strong>Phone:</strong> ${resumeData.phone}</p>
             ${resumeData.linkedin ? `<p><strong>LinkedIn:</strong> <a href="${resumeData.linkedin}" target="_blank">${resumeData.linkedin}</a></p>` : ''}
             ${resumeData.github ? `<p><strong>GitHub:</strong> <a href="${resumeData.github}" target="_blank">${resumeData.github}</a></p>` : ''}`;
-
         Object.entries(resumeData.sections).forEach(([sectionName, content]) => {
             resumeHTML += `<h2>${sectionName}</h2>
                 <p>${content.replace(/\n/g, '</p><p>')}</p>`;
