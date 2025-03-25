@@ -99,7 +99,7 @@ body {
     background-color: #444;
     color: white;
     border: none;
-    /* padding: 10px 15px; */
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
 }
@@ -461,31 +461,6 @@ hr {
   color: red;
 }
 
-/* bact-to-top */
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  display: none;
-  width: 50px;
-  height: 50px;
-  font-size: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out;
-}
-
-#backToTop:hover {
-  background-color: #0056b3;
-}
-
-
 
 
 
@@ -512,3 +487,4 @@ hr {
 #backToTop:hover {
   background-color: #0056b3;
 }
+

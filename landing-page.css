@@ -1,0 +1,42 @@
+/* Landing Page Styles */
+.landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+}
+
+.landing-container {
+    max-width: 600px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.landing-container h1 {
+    font-size: 2.5rem;
+}
+
+.landing-container p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: white;
+    color: #1e3c72;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+}
