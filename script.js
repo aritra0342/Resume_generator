@@ -168,7 +168,8 @@ certificatesContainer.addEventListener("click", function (e) {
 
         const sections = form.querySelectorAll(".form-section");
         sections.forEach((section) => {
-            const sectionTitle = section.querySelector("h2").innerText.trim();
+            let sectionTitle = section.querySelector("h2").innerText.trim();
+            sectionTitle = sectionTitle.replace(/\*/g, ""); 
             const inputs = section.querySelectorAll("input, textarea");
             let sectionContent = [];
 
