@@ -17,7 +17,42 @@ body {
     padding: 20px;
     transition: color 0.3s;
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
+.navbar .logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 50px;
+  padding-right: 130px;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #f0f0f0;
+}
 /* Remove background change in light mode */
 .light-mode {
     background: linear-gradient(to right, #1e3c72, #2a5298); /* Same as dark mode */
@@ -104,7 +139,7 @@ body {
 }
 .theme-toggle {
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 20px;
     font-size: 14px;
     padding: 5px 8px;  /* Reduced padding */
@@ -120,10 +155,10 @@ body {
 }
 
 .theme-toggle:hover {
-    background-color: #666;
-  background: linear-gradient(to right, #1e3c72, #2a5298);
+    background-color: #d1c3c3;
+  background: linear-gradient(to right, #9b9c9f, #2a5298);
   color: #333;
-  padding: 20px;
+  padding: 6px;
 
 }
 
