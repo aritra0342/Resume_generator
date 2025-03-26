@@ -488,3 +488,141 @@ hr {
   background-color: #0056b3;
 }
 
+/* RESUME PREVIEW LAYOUT */
+#resume-preview {
+  font-family: 'Poppins', sans-serif;
+  background: white;
+  color: #2d3748;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* Left Sidebar */
+.resume-sidebar {
+  border-right: 3px solid #2a5298;
+  padding-right: 25px;
+}
+
+/* Main Content */
+.resume-main {
+  padding-top: 15px;
+}
+
+/* Profile Section */
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #2a5298;
+}
+
+.contact-info {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+/* Section Styling */
+.resume-section {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2a5298;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+/* Experience Items */
+.experience-item {
+  margin-bottom: 20px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.job-title {
+  font-weight: 600;
+  color: #1a365d;
+}
+
+.company-name {
+  color: #4a5568;
+  font-style: italic;
+}
+
+.experience-dates {
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+/* Education Section */
+.education-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.degree-name {
+  font-weight: 500;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.skill-item {
+  background: #f7fafc;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Dark Mode */
+.dark-mode #resume-preview {
+  background: #1e1e1e;
+  color: #e2e8f0;
+}
+
+.dark-mode .section-title {
+  color: #63b3ed;
+  border-bottom-color: #4a5568;
+}
+
+.dark-mode .skill-item {
+  background: #2d3748;
+}
+
+.dark-mode .company-name {
+  color: #cbd5e0;
+}
