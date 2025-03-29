@@ -627,7 +627,33 @@ hr {
   color: #cbd5e0;
 }
 
+/* My Code */
 
+.hover-heading {
+  position: relative;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.hover-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background-color: #1860d4;
+  transition: width 0.3s ease-in-out;
+}
+
+.hover-heading:hover {
+  color: #1860d4;
+}
+
+.hover-heading:hover::after {
+  width: 100%;
+}
 
 
 
@@ -717,8 +743,6 @@ hr {
 .preview-container h2 {
   filter: brightness(1.5);
 }
-
-
 
 
 
