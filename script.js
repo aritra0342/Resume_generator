@@ -222,4 +222,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initial preview update
     updatePreview();
+
 });
