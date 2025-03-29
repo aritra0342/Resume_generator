@@ -626,3 +626,113 @@ hr {
 .dark-mode .company-name {
   color: #cbd5e0;
 }
+
+
+
+
+
+
+.resume-builder {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px; /* Space between form and preview */
+  padding: 30px 10px;
+}
+
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 45%;
+  max-width: 800px;
+  border: 2px solid #2a5298;
+}
+
+
+.output-container {
+  width: 45%;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #2a5298;
+}
+
+
+
+
+
+.output-container {
+  width: 45%;
+  height: 500px; /* Fixed height */
+  overflow-y: auto; /* Scrollable when content exceeds height */
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #2a5298;
+  
+  
+  position: sticky;
+  top: 20px;
+}
+
+
+.resume-builder {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap; 
+  gap: 40px;
+  padding: 30px 10px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+.container {
+  flex: 1;
+  min-width: 45%;
+  max-width: 50%;
+}
+
+
+
+
+.preview-container {
+  position: fixed;
+  top: 50 px;
+  left:790px;
+  width: 50 px;
+  right: 20px;
+ 
+}
+
+
+
+.preview-container h2 {
+  filter: brightness(1.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
