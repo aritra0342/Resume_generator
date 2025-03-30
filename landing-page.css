@@ -37,14 +37,21 @@
   .navbar-links a:hover {
     color: #f0f0f0;
   }
+ 
 .landing-page {
+    background-image: url("images/background-landing.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    width: 100vw;
     color: white;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
 }
 
 .landing-container {
@@ -53,6 +60,7 @@
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .landing-container h1 {
@@ -76,5 +84,40 @@
 }
 
 .btn:hover {
-    background: #f0f0f0;
+    background: #000;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-container {
+        max-width: 90%;
+        padding: 30px;
+    }
+    .landing-container h1 {
+        font-size: 2rem;
+    }
+    .landing-container p {
+        font-size: 1rem;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-container {
+        padding: 20px;
+    }
+    .landing-container h1 {
+        font-size: 1.8rem;
+    }
+    .landing-container p {
+        font-size: 0.9rem;
+    }
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
