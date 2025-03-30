@@ -224,3 +224,25 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePreview();
 
 });
+
+
+//auto-save-the-progress feature ,so that user dont loose progress on accedental refresh
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("resume-form");
+
+    Object.keys(localStorage).forEach((key) => {
+        let input = form.elements[key];
+        if (input) {
+            input.value = localStorage.getItem(key);
+        }
+    });
+
+    form.addEventListener("input", function (e) {
+        localStorage.setItem(e.target.name, e.target.value);
+    });
+
+    form.addEventListener("submit", function () {
+        localStorage.clear();
+    });
+});
