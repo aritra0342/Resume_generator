@@ -811,4 +811,39 @@ hr {
 
 
 
+/*
+Clear form styling........
+*/
+
+
+.from-header{
+  display: inline-flex;
+}
+
+#clearFormBtn{
+  
+  display: inline-block; 
+  width: auto; 
+  padding: 8px 15px; 
+  font-size: 14px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  left: 200px;
+}
+#clearFormBtn:hover {
+  background-color: darkred; 
+  transform: scale(1.05); 
+}
+
+
+
+
+
+
+
 
