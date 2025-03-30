@@ -24,6 +24,70 @@ body {
   overflow: auto;
 }
 
+.navbar {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 30px;
+
+  background-color: rgba(255, 255, 255, 0.1);
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+}
+
+.navbar .logo {
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  font-weight: bold;
+
+  text-decoration: none;
+
+}
+
+.navbar-links {
+
+  display: flex;
+
+  gap: 50px;
+
+  padding-right: 130px;
+
+}
+
+.navbar-links a {
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: color 0.3s;
+
+}
+
+.navbar-links a:hover {
+
+  color: #f0f0f0;
+
+}
+
 /* Remove background change in light mode */
 .light-mode {
     background-image: url("images/background.png"); /* Same as dark mode */
@@ -743,18 +807,6 @@ hr {
 .preview-container h2 {
   filter: brightness(1.5);
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
