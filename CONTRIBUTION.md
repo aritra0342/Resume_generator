@@ -11,7 +11,7 @@ We welcome contributions of all kinds, including bug fixes, feature enhancements
 - Click the **Fork** button on the top-right corner of the repository page.
 - Clone your forked repository to your local machine:
   ```bash
-  git clone https://github.com/<your-username>/Resume_generator.git
+  git clone https://github.com/aritra0342/Resume_generator.git
   ```
 
 ### 2. Create a Branch
