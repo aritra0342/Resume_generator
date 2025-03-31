@@ -246,3 +246,17 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.clear();
     });
 });
+
+
+
+//Clear form feature...................
+
+
+document.getElementById("clearFormBtn").addEventListener("click", function () {
+    
+    document.getElementById("resume-form").reset();
+
+   
+    localStorage.removeItem("resumeData");
+});
+
