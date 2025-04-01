@@ -352,13 +352,17 @@ button {
   width: 100%;
   background: #2a5298;
   color: #fff;
-  padding: 15px;
+  padding: 15px 30px; 
   border: none;
-  border-radius: 5px;
-  font-size: 18px;
+  border-radius: 5px; 
+  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   margin-top: 10px;
+  background-color: #4CAF50; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none; 
+  transition: background-color 0.3s;
 }
 
 #add-certificate:hover i{
@@ -366,7 +370,7 @@ button {
 }
 
 button:hover {
-  background: #1e3c72;
+  background-color: #114714;
 }
 
 /* Resume Output Styling */
@@ -380,7 +384,7 @@ button:hover {
 }
 
 .resume-output h1 {
-  color: #1e3c72;
+  color: #1c850e;
   text-align: center;
   font-size: 28px;
   margin-bottom: 0;
