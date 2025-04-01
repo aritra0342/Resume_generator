@@ -76,7 +76,7 @@
     display: inline-block;
     padding: 12px 25px;
     background: white;
-    color: #1e3c72;
+    color: #11b814;
     font-size: 1.2rem;
     text-decoration: none;
     border-radius: 5px;
@@ -86,6 +86,67 @@
 .btn:hover {
     background: #000;
     color: white;
+}
+
+.btn-rounded {
+    background-color: #FF5722; 
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px; 
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+  
+  .btn-rounded:hover {
+    transform: scale(1.05); 
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: #4CAF50; 
+    border: 2px solid #4CAF50; 
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-outline:hover {
+    background-color: #4CAF50; 
+    color: white; 
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.btn-ghost:hover {
+    border-color: #fff; 
+    color: #fff;
+}
+
+.btn-3d {
+    background-color: #2196F3;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.btn-3d:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); 
 }
 
 /* Responsive Design */
