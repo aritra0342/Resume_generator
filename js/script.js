@@ -128,6 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleDragOver(e) {
         e.preventDefault();
         const afterElement = getDragAfterElement(form, e.clientY);
+        this.style.transform = 'scale(1.02)';
+        this.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
         const sections = document.querySelectorAll(".form-section");
 
         sections.forEach((section) => {
@@ -148,6 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function handleDragEnd() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'none';
         this.classList.remove("dragging");
         document.querySelectorAll(".form-section").forEach(section => {
             section.classList.remove("drag-over-top", "drag-over-bottom");
@@ -188,6 +192,11 @@ document.addEventListener("DOMContentLoaded", function () {
         updatePreview(); // Update preview when new certificate is added
     }
 
+    function validatePhoneNumber(phone) {
+        const regex = /^(?:\+91\s?)?(?:\d{5}\s?\d{5}|\d{10})$/;
+        return regex.test(phone);
+    }
+
     addCertificateButton.addEventListener("click", addCertificate);
 
     certificatesContainer.addEventListener("click", function (e) {
@@ -198,8 +207,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Modified Form Submission
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
+        
+        // Get current phone value from form
+        const phoneInput = document.querySelector('input[name="phone"]');
+        
+        // Validate the actual input value
+        if (!validatePhoneNumber(phoneInput.value)) {
+            alert("Please enter a valid Indian phone number.");
+            return;
+        }
+    
+        // Show loading spinner
+        const spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        outputContainer.appendChild(spinner);
+        
+        // Simulate processing delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Generate output
         outputContainer.innerHTML = `
             <div class="resume-output">
                 ${preview.innerHTML}
@@ -209,6 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         `;
+        
         outputContainer.style.display = "block";
         form.style.display = "none";
     });
@@ -224,7 +253,6 @@ document.addEventListener("DOMContentLoaded", function () {
     updatePreview();
 
 });
-
 
 //auto-save-the-progress feature ,so that user dont loose progress on accedental refresh
 
@@ -247,10 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 //Clear form feature...................
-
 
 document.getElementById("clearFormBtn").addEventListener("click", function () {
     
@@ -259,10 +284,6 @@ document.getElementById("clearFormBtn").addEventListener("click", function () {
    
     localStorage.removeItem("resumeData");
 });
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const logoText = document.querySelector(".logo span");
