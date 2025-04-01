@@ -260,3 +260,16 @@ document.getElementById("clearFormBtn").addEventListener("click", function () {
     localStorage.removeItem("resumeData");
 });
 
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const logoText = document.querySelector(".logo span");
+
+    setTimeout(() => {
+        logoText.classList.add("typing-complete"); 
+    }, 2000); 
+});
+
+

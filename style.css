@@ -36,7 +36,7 @@ body {
 
   background-color: rgba(255, 255, 255, 0.1);
 
-  position: fixed;
+    /*position: fixed; */
 
   top: 0;
 
@@ -187,18 +187,18 @@ body {
 }
 .theme-toggle {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 32px;
+    right: 32px;
     font-size: 14px;
-    padding: 5px 8px;  /* Reduced padding */
+    padding: 5px 8px;  
     border-radius: 5px;
     background-color: #444;
     color: white;
     border: none;
     cursor: pointer;
     transition: 0.3s;
-    width: auto; /* Automatically adjusts width to content */
-    min-width: 80px; /* Ensures it doesn’t shrink too much */
+    width: auto;
+    min-width: 80px;
     text-align: center;
 }
 
@@ -206,8 +206,59 @@ body {
     background-color: #666;
     background: linear-gradient(to right, #1e3c72, #2a5298);
     color: white;
-    padding: 20px;
+  
 
+}
+
+/*Typing effect on the navbar(Resume creator)*/
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+.navbar .logo span {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white; 
+  width: 0;
+  animation: typing 2s steps(15, end) forwards, blink 0.7s infinite;
+}
+
+.navbar .logo span.typing-complete {
+  border-right: none;
+}
+
+
+/*navbar elemnt styling(Underline) */
+
+.navbar-links a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
 }
 
 
