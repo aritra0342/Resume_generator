@@ -22,5 +22,89 @@
         <p>Create a professional resume quickly and easily.</p>
         <a href="index.html" class="btn">Get Started</a>
     </div>
+
+     
+  <!--I have implemented Canvas API for the floating paricle animation here at the HTML page itself -->
+
+    <script>
+
+ const canvas = document.createElement("canvas");
+ const ctx = canvas.getContext("2d");
+ document.body.appendChild(canvas);
+ 
+ canvas.style.position = "fixed";
+ canvas.style.top = "0";
+ canvas.style.left = "0";
+ canvas.style.width = "100vw";
+ canvas.style.height = "100vh";
+ canvas.style.pointerEvents = "none"; 
+ canvas.style.zIndex = "-1"; 
+ 
+ let particles = [];
+ const numParticles = 100; 
+ 
+
+ function resizeCanvas() {
+   canvas.width = window.innerWidth;
+   canvas.height = window.innerHeight;
+ }
+ window.addEventListener("resize", resizeCanvas);
+ resizeCanvas(); 
+ 
+ 
+ function createParticles() {
+   particles = [];
+   for (let i = 0; i < numParticles; i++) {
+     particles.push({
+       x: Math.random() * canvas.width,
+       y: Math.random() * canvas.height,
+       radius: Math.random() * 3 + 1, 
+       color: "rgba(255, 255, 255, 0.8)", 
+       speedX: (Math.random() - 0.5) * 1.5,
+       speedY: (Math.random() - 0.5) * 1.5,
+     });
+   }
+ }
+ 
+ 
+ function drawParticles() {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+   for (let p of particles) {
+     ctx.beginPath();
+     ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+     ctx.fillStyle = p.color;
+     ctx.fill();
+   }
+ }
+ 
+
+ function updateParticles() {
+   for (let p of particles) {
+     p.x += p.speedX;
+     p.y += p.speedY;
+ 
+     
+     if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+     if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+   }
+ }
+ 
+
+ function animate() {
+   drawParticles();
+   updateParticles();
+   requestAnimationFrame(animate);
+ }
+ 
+ 
+ createParticles();
+ animate();
+ 
+        
+
+</script>
+       
+
+
 </body>
 </html>
