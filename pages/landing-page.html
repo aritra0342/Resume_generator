@@ -30,6 +30,18 @@
             <a href="#" target="_blank">Contact</a>
             <a href="../pages/Register.html"><i class="fa-solid fa-user"></i> Register</a>
         </div>
+
+        <div class="sideNav">
+          <button onclick="sideNav()">Side Nav</button>
+        </div>
+
+        <div class="side-navbar-links" id="sideNavBar">
+          <a href="landing-page.html">Home</a>
+          <a href="index.html" class="active">Create Resume</a>
+          <a href="#" target="_blank">About</a>
+          <a href="#" target="_blank">Contact</a>
+          <a href="../pages/Register.html"><i class="fa-solid fa-user"></i> Register</a>
+      </div>
     </nav>
     <div class="landing-container">
         <h1>Welcome to Resume Generator</h1>
@@ -115,7 +127,9 @@
  animate();
  
         
-
+function sideNav(){
+  document.getElementById('sideNavBar').classList.toggle('open')
+}
 </script>
        
 
