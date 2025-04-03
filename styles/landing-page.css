@@ -2,6 +2,19 @@
     margin: 0px;
     padding: 0px;
 }
+body.landing-page {
+    background-color: #f4f4f4; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.landing-container {
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 40px; 
+    max-width: 600px; 
+    margin: 50px auto; 
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -12,6 +25,11 @@
     top: 0;
     left: 0;
     width: 96%;
+  }
+  .navbar:hover
+  {
+    background: #1e3c72;
+    border: #000;
   }
   
   .navbar .logo {
@@ -34,7 +52,9 @@
   }
   
   .navbar-links a:hover {
-    color: #f0f0f0;
+    color: #f0e509;
+    font-weight: 600;
+    
   }
  
 .landing-page {

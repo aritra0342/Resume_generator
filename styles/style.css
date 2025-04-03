@@ -22,6 +22,7 @@ body {
   padding: 20px;
   transition: color 0.3s;
   overflow: auto;
+  
 }
 
 .navbar {
@@ -67,17 +68,31 @@ body {
   text-decoration: none;
 
   font-weight: 500;
+  padding: 10px 15px;
 
-  transition: color 0.3s;
+  transition: background-color 0.3s;
 
 }
 
 .navbar-links a:hover {
 
-  color: #f0f0f0;
+  color: #f0e509;
+    font-weight: 600;
+    border-radius: 5px;
 
 }
+h1{
+  font-size: 2.5em; 
+  color: #333; 
+  margin-bottom: 20px; 
+}
 
+p {
+  font-size: 1.1em; 
+  color: #666; 
+  line-height: 1.6; 
+  margin-bottom: 30px; 
+}
 /* Remove background change in light mode */
 .light-mode {
     background-image: url("../images/background.png"); /* Same as dark mode */
@@ -358,7 +373,7 @@ input:focus, textarea:focus {
 /* Buttons */
 button {
   width: 100%;
-  background: #2a5298;
+  background-color: #007BFF;
   color: #fff;
   padding: 15px 30px; 
   border: none;
@@ -367,17 +382,20 @@ button {
   cursor: pointer;
   transition: 0.3s;
   margin-top: 10px;
+  transition: background-color 0.3s, transform 0.3s;
   background-color: #4CAF50; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-decoration: none; 
   transition: background-color 0.3s;
 }
 
+
 #add-certificate:hover i{
   color: blue;
 }
 
 button:hover {
+  background-color: #0056b3;
   background-color: #114714;
 }
 
@@ -472,6 +490,37 @@ hr {
     margin: 0 auto 15px;
   }
 }
+
+@media (max-width: 768px) {
+  .landing-container {
+      padding: 20px; 
+  }
+
+  h1 {
+      font-size: 2em; 
+  }
+
+  p {
+      font-size: 1em; 
+  }
+
+  .navbar {
+      flex-direction: column; 
+  }
+
+  .navbar a {
+      padding: 10px; 
+}
+}
+/* Form Sections */
+.form-section {
+
+    margin: 15px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    transition: transform 0.2s, opacity 0.2s;
+    cursor: move;
 
 /* Light Mode Form Section */
 .light-mode .form-section {
@@ -950,6 +999,23 @@ Clear form styling........
   background-color: darkred; 
   transform: scale(1.05); 
 }
+
+footer {
+  background-color: #0b0a0a; 
+  color: white; 
+  text-align: center; 
+  padding: 20px 0; 
+  position: relative; 
+  bottom: 0;
+  width: 100%; 
+}
+
+footer p {
+  margin: 0;
+  color: floralwhite;
+}
+
+
 
 @media print {
   body * {
