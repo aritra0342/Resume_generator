@@ -13,7 +13,7 @@
 
 body {
   height: 100vh;
-  background-image: url("../images/background.png");
+  background-color:green;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -95,7 +95,7 @@ p {
 }
 /* Remove background change in light mode */
 .light-mode {
-    background-image: url("../images/background.png"); /* Same as dark mode */
+  
     color: black;
 }
 
@@ -1037,4 +1037,19 @@ footer p {
   .export-buttons {
     display: none !important;
   }
+}
+
+
+
+
+/* particle-js animaion styling...........    */
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
