@@ -674,8 +674,6 @@ hr {
 }
 
 
-
-
 /* bact-to-top */
 #backToTop {
   position: fixed;
@@ -1001,20 +999,55 @@ Clear form styling........
 }
 
 footer {
-  background-color: #0b0a0a; 
-  color: white; 
-  text-align: center; 
-  padding: 20px 0; 
-  position: relative; 
-  bottom: 0;
-  width: 100%; 
-}
-
-footer p {
   margin: 0;
   color: floralwhite;
+  background-color: #2c3e50; 
+  color: #ecf0f1;
+  text-align: center; 
+  padding: 2rem 0; 
+  position: relative;
+  bottom: 0; 
+  width: 100%; 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
+  .footer a {
+    margin: 0 1rem;
+    display: inline-block;
+    color: #ecf0f1; 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+    background-color: #fff; 
+    color: #3498db; 
+    text-decoration: underline
+  }
+  
+  .footer p {
+    margin: 0.5rem 0; 
+    font-size: 0.9rem; 
+    margin: 0;
+    color: floralwhite;
+  }
+  
+  .social-links {
+    margin-top: 1rem; 
+  }
+  
+  .social-icon {
+    color: #fff; 
+    margin: 0 0.5rem; 
+    font-size: 1.5rem;
+    transition: color 0.3s ease; 
+  }
+  
+  .social-icon:hover {
+    color: #3498db; 
+  }
 
+}
 
 
 @media print {
