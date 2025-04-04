@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
+    <meta name="description"
+        content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
     <meta name="keywords" content="Resume Creator, Resume Builder, Professional Resume, Real-time Preview, Career">
     <meta name="author" content="Your Name">
     <meta property="og:title" content="Resume Creator">
-    <meta property="og:description" content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
+    <meta property="og:description"
+        content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
     <meta property="og:image" content="../images/og-image.png">
     <meta property="og:url" content="https://yourwebsite.com/index.html">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Resume Creator">
-    <meta name="twitter:description" content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
+    <meta name="twitter:description"
+        content="Build your professional resume effortlessly with our Resume Creator. Customize and preview your resume in real-time.">
     <meta name="twitter:image" content="../images/og-image.png">
     <title>Resume Creator</title>
     <link rel="shortcut icon" href="../images/favicon.png" type="image/image">
@@ -26,10 +29,10 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <script>
-            if (document.referrer === "") {
-                window.location.href = "landing-page.html";
-            }
-        </script>
+        if (document.referrer === "") {
+            window.location.href = "landing-page.html";
+        }
+    </script>
 </head>
 
 <body>
@@ -45,25 +48,36 @@
             <a href="#" target="_blank">Contact</a>
             <button class="theme-toggle">🌙 Dark Mode</button>
         </div>
+
+        <div class="sideNav">
+            <button onclick="sideNav()">Side Nav</button>
+        </div>
+
+        <div class="side-navbar-links" id="sideNavBar">
+            <a href="#" target="_blank">About</a>
+            <a href="#" target="_blank">Contact</a>
+            <button class="theme-toggle">🌙 Dark Mode</button>
+        </div>
     </nav>
-   
+
     <section class="resume-builder">
         <div class="container">
 
-        
-                <div class="form-header">
+
+            <div class="form-header">
 
                 <h1 class="hover-heading">Resume Creator</h1>
-    
-                <button id="clearFormBtn" type="button">Clear Form</button> 
-    
-                </div>
-    
 
-            <form id="resume-form"> 
+                <button id="clearFormBtn" type="button">Clear Form</button>
+
+            </div>
+
+
+            <form id="resume-form">
                 <div class="form-section">
 
-                    <h2 class="hover-heading"><span class="grip-icon"></span>Personal Information <span class="required-field">*</span></h2>
+                    <h2 class="hover-heading"><span class="grip-icon"></span>Personal Information <span
+                            class="required-field">*</span></h2>
                     <input type="text" name="name" placeholder="Full Name *" maxlength="50"
                         data-counter-id="name-counter" required>
                     <div class="char-counter" id="name-counter"></div>
@@ -74,18 +88,18 @@
 
                     <input type="email" name="email" placeholder="Email *" required>
                     <br />
-                    
+
                     <input type="tel" name="phone" placeholder="Phone Number *" required>
                     <br />
-                    
+
                     <input type="text" name="linkedin" placeholder="LinkedIn Profile">
                     <br />
-                    
+
                     <input type="text" name="github" placeholder="GitHub Profile">
 
                     <!-- Image Upload -->
                     <br />
-                    
+
                     <label for="profile-picture">Upload Profile Picture:</label>
                     <input type="file" id="profile-picture" accept="image/*">
                 </div>
@@ -179,7 +193,7 @@
         </div>
     </section>
 
-    
+
 
     <div id="output-container" class="output-container" style="display: none;"></div>
 
@@ -208,6 +222,11 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script>
+        function sideNav() {
+            document.getElementById('sideNavBar').classList.toggle('open')
+        }
+    </script>
 </body>
 
 </html>

@@ -2,10 +2,20 @@
     margin: 0px;
     padding: 0px;
 }
+
+body, html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body.landing-page {
     background-color: #f4f4f4; 
     font-family: 'Arial', sans-serif; 
+    box-sizing: border-box;
 }
+
+
 
 .landing-container {
     background-color: white; 
@@ -14,6 +24,8 @@ body.landing-page {
     padding: 40px; 
     max-width: 600px; 
     margin: 50px auto; 
+    overflow: hidden;
+    z-index: 10;
 }
 .navbar {
     display: flex;
@@ -25,12 +37,13 @@ body.landing-page {
     top: 0;
     left: 0;
     width: 96%;
+    z-index: 199;
   }
-  .navbar:hover
+  /* .navbar:hover
   {
     background: #1e3c72;
     border: #000;
-  }
+  } */
   
   .navbar .logo {
     color: white;
@@ -65,8 +78,8 @@ body.landing-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100vh !important;
+    width: 100vw !important;
     color: white;
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -80,6 +93,7 @@ body.landing-page {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
+    width: 100vw !important;
 }
 
 .landing-container h1 {
@@ -178,6 +192,46 @@ body.landing-page {
     transform: translateY(-2px); 
 }
 
+.sideNav{
+    margin-right: 20px;
+    display: none;
+    z-index: 201;
+}
+
+.side-navbar-links{
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+    display: none;
+    gap: 1em;
+    flex-direction: column;
+    padding: 4em 1em;
+    align-items: start;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.315);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    transition: all ease-in-out 300ms;
+}
+
+.side-navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: color 0.3s;
+  }
+  
+  .side-navbar-links a:hover {
+    color: #f0e509;
+    font-weight: 600;
+  } 
+
+.open{
+    transform: translateX(260px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .landing-container {
@@ -193,6 +247,18 @@ body.landing-page {
     .btn {
         font-size: 1rem;
         padding: 10px 20px;
+    }
+
+    .navbar-links{
+        display: none;
+    }
+
+    .sideNav{
+        display: block;
+    }
+
+    .side-navbar-links{
+        display: flex;
     }
 }
 
