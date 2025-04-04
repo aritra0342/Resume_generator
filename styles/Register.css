@@ -102,36 +102,6 @@ form.sign-in-form {
     font-weight: 500;
 }
 
-.social-text {
-    padding: 0.7rem 0;
-    font-size: 1rem;
-}
-
-.social-media {
-    display: flex;
-    justify-content: center;
-}
-
-.social-icon {
-    height: 46px;
-    width: 46px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0.45rem;
-    color: #2267d6;
-    border-radius: 50%;
-    border: 1px solid #0e0f0f;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
-
-.social-icon:hover {
-    color: #1b6dd8;
-    border-color: #074f97;
-}
-
 .btn {
     width: 150px;
     background-color: #0b0c0f;
@@ -402,44 +372,6 @@ form.sign-in-form {
         left: 50%;
     }
 }
-
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 18px;
-    color: #333;
-    background: #fff;
-    transition: all 0.3s ease-in-out;
-}
-
-.social-icon:hover {
-    color: #fff;
-}
-
-.social-icon:nth-child(1):hover {
-    background: #1877f2; /* Facebook */
-}
-
-.social-icon:nth-child(2):hover {
-    background: #1da1f2; /* Twitter */
-}
-
-.social-icon:nth-child(3):hover {
-    background: #db4437; /* Google */
-}
-
-.social-icon:nth-child(4):hover {
-    background: #0077b5; /* LinkedIn */
-}
-
-
-
-
 
 .btn {
     background: linear-gradient(45deg, #ff4b2b, #ff416c);
