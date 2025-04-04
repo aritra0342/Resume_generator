@@ -805,24 +805,27 @@ footer p{
   color: red;
 }
 
-.navbar-links{
-  display: none;
-}
 
 
-.sideNav{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
+  padding: 0;
 }
 
-.sideNav button{
-  margin: 0;
-}
-
-.side-navbar-links{
+/* Sidebar Styling */
+.side-navbar-links {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Initially Hidden */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
 }
 
 
@@ -1235,8 +1238,25 @@ footer {
   top: 0;
   left: 0;
 }
+
+
+
+
+/*The upper porsion of the form was covered by black layer,so to remove that i made resume-form and form header render on top of that layer....   */
+
+#resume-form {
+  position: relative; 
+  z-index: 9999; 
+  background: white; 
 }
 
+.form-header {
+  position: relative;
+  z-index: 10000; 
+  background: white; 
+  padding: 10px; 
+  width: 100%; 
+}
 
 
 
