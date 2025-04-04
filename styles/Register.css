@@ -402,3 +402,70 @@ form.sign-in-form {
         left: 50%;
     }
 }
+
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #333;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+    color: #fff;
+}
+
+.social-icon:nth-child(1):hover {
+    background: #1877f2; /* Facebook */
+}
+
+.social-icon:nth-child(2):hover {
+    background: #1da1f2; /* Twitter */
+}
+
+.social-icon:nth-child(3):hover {
+    background: #db4437; /* Google */
+}
+
+.social-icon:nth-child(4):hover {
+    background: #0077b5; /* LinkedIn */
+}
+
+
+
+
+
+.btn {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #e63e1e, #e2335e);
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(255, 65, 108, 0.4);
+}
+
+.btn.transparent {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn.transparent:hover {
+    background: white;
+    color: #ff416c;
+}
