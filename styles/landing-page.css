@@ -13,6 +13,8 @@ body.landing-page {
     background-color: #f4f4f4; 
     font-family: 'Arial', sans-serif; 
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -196,6 +198,7 @@ body.landing-page {
     margin-right: 20px;
     display: none;
     z-index: 201;
+    font-size: 1.5em;
 }
 
 .side-navbar-links{
@@ -230,6 +233,10 @@ body.landing-page {
 
 .open{
     transform: translateX(260px);
+}
+
+.footer{
+    position: fixed;
 }
 
 /* Responsive Design */
