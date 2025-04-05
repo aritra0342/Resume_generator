@@ -43,7 +43,7 @@ body, html{
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 100000;
   padding: 0.3em 3em;
 }
 
@@ -1169,19 +1169,22 @@ Clear form styling........
 
 /*The upper porsion of the form was covered by black layer,so to remove that i made resume-form and form header render on top of that layer....   */
 
+
 #resume-form {
   position: relative; 
-  z-index: 9999; 
+  z-index: 100; 
   background: white; 
 }
 
 .form-header {
   position: relative;
-  z-index: 10000; 
+  z-index: 100; 
   background: white; 
   padding: 10px; 
   width: 100%; 
 }
+
+
 
 
 
