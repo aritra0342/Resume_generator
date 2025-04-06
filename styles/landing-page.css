@@ -102,12 +102,16 @@ body.landing-page {
     font-size: 2.5rem;
     font-weight: bold;
     line-height: 1.2;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
 }
 
 .landing-container p {
     font-size: 1.2rem;
     margin: 15px 0;
     line-height: 1.5;
+    font-style: italic;
+    font-family: cursive;
 }
 
 .landing-container a.btn {
@@ -115,13 +119,15 @@ body.landing-page {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-style: italic;
+    font-family: 'FontAwesome';
 }
 
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background: white;
-    color: #11b814;
+    background: rgb(0, 0, 0);
+    color: #cecece;
     font-size: 1.2rem;
     text-decoration: none;
     border-radius: 5px;
@@ -129,7 +135,7 @@ body.landing-page {
 }
 
 .btn:hover {
-    background: #000;
+    background: #5d5d5d;
     color: white;
 }
 
@@ -300,9 +306,10 @@ body.landing-page {
   
   .footer-container {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    gap: 15px; 
+    gap: 198px; 
+    justify-content: space-around;
   }
   
   .footer-copy {
