@@ -110,26 +110,45 @@
 
                 <div class="form-section">
                     <h2 class="hover-heading">Work Experience</h2>
-
-                    <textarea name="work_experience" placeholder="Previous jobs and roles" rows="3" maxlength="500"
-                        data-counter-id="experience-counter"></textarea>
+                    <div id="work-experience-entries">
+                        <div class="work-entry">
+                            <input type="text" name="job_title" placeholder="Job Title">
+                            <input type="text" name="company" placeholder="Company">
+                            <input type="text" name="work_dates" placeholder="Dates">
+                            <textarea name="work_description" placeholder="Description"></textarea>
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-work">Add Another</button>
                     <div class="char-counter" id="experience-counter"></div>
 
                 </div>
 
                 <div class="form-section">
                     <h2 class="hover-heading">Education <span class="required-field">*</span></h2>
-                    <textarea name="education" placeholder="Your academic background *" rows="3" maxlength="300"
-                        data-counter-id="education-counter" required></textarea>
+                    <div id="education-entries">
+                        <div class="education-entry">
+                            <input type="text" name="degree" placeholder="Degree">
+                            <input type="text" name="institution" placeholder="Institution">
+                            <input type="text" name="education_dates" placeholder="Dates">
+                            <textarea name="education_details" placeholder="Details"></textarea>
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-education">Add Another</button>
                     <div class="char-counter" id="education-counter"></div>
 
                 </div>
 
                 <div class="form-section">
                     <h2 class="hover-heading">Skills</h2>
-
-                    <textarea name="skills" placeholder="Your key skills" rows="3" maxlength="100"
-                        data-counter-id="skills-counter"></textarea>
+                    <div id="skills-entries">
+                        <div class="skill-entry">
+                            <input type="text" name="skill" placeholder="Skill">
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-skill">Add Another</button>
                     <div class="char-counter" id="skills-counter"></div>
 
                 </div>
@@ -157,24 +176,34 @@
 
                 <div class="form-section">
                     <h2 class="hover-heading">Projects</h2>
-                    <textarea name="projects" placeholder="Notable projects" rows="3" maxlength="400"
-                        data-counter-id="projects-counter"></textarea>
+                    <div id="project-entries">
+                        <div class="project-entry">
+                            <input type="text" name="project_title" placeholder="Project Title">
+                            <input type="url" name="project_link" placeholder="Project Link">
+                            <textarea name="project_description" placeholder="Description"></textarea>
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-project">Add Another</button>
                     <div class="char-counter" id="projects-counter"></div>
 
                 </div>
 
                 <div class="form-section">
                     <h2 class="hover-heading">Achievements</h2>
-
-                    <textarea name="achievements" placeholder="Awards and recognitions" rows="3" maxlength="150"
-                        data-counter-id="achievements-counter"></textarea>
+                    <div id="achievement-entries">
+                        <div class="achievement-entry">
+                            <input type="text" name="achievement" placeholder="Achievement">
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-achievement">Add Another</button>
                     <div class="char-counter" id="achievements-counter"></div>
 
                 </div>
 
                 <div class="form-section">
                     <h2 class="hover-heading">Languages <span class="required-field">*</span></h2>
-
                     <textarea name="languages" placeholder="Languages you speak *" rows="3" maxlength="100"
                         data-counter-id="languages-counter" required></textarea>
                     <div class="char-counter" id="languages-counter"></div>

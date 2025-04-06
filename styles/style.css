@@ -1314,6 +1314,27 @@ footer {
 .linkedin:hover  { color: #0077b5; }
 .instagram:hover { color: #e1306c; }
 
+.dynamic-entry {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.remove-entry {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.remove-entry:hover {
+  background: #cc0000;
+}
+
 /* Made it Responsive......... */
 @media (max-width: 500px) {
   .footer-links {

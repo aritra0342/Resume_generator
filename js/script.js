@@ -5,6 +5,80 @@ document.addEventListener("DOMContentLoaded", function () {
     const preview = document.getElementById("resume-preview");
     let profilePicture = null;
     let draggedElement = null;
+    const sections = {
+        'work': {
+            container: '#work-experience-entries',
+            button: '#add-work',
+            entry: `<div class="work-entry">
+                      <input type="text" name="job_title" placeholder="Job Title">
+                      <input type="text" name="company" placeholder="Company">
+                      <input type="text" name="work_dates" placeholder="Dates">
+                      <textarea name="work_description" placeholder="Description"></textarea>
+                      <button type="button" class="remove-entry">Remove</button>
+                    </div>`
+        },
+        'education': { 
+            container: '#education-entries',
+            button: '#add-education',
+            entry: `<div class="education-entry">
+                        <input type="text" name="degree" placeholder="Degree">
+                        <input type="text" name="institution" placeholder="Institution">
+                        <input type="text" name="education_dates" placeholder="Dates">
+                        <textarea name="education_details" placeholder="Details"></textarea>
+                        <button type="button" class="remove-entry">Remove</button>
+                    </div>`
+        },
+        'skills': { 
+            container: '#skills-entries',
+            button: '#add-skill',
+            entry: `<div class="skill-entry">
+                        <input type="text" name="skill" placeholder="Skill">
+                        <button type="button" class="remove-entry">Remove</button>
+                    </div>`
+        },
+        'projects': { 
+            container: '#project-entries',
+            button: '#add-project',
+            entry: `<div class="project-entry">
+                        <input type="text" name="project_title" placeholder="Project Title">
+                        <input type="url" name="project_link" placeholder="Project Link">
+                        <textarea name="project_description" placeholder="Description"></textarea>
+                        <button type="button" class="remove-entry">Remove</button>
+                    </div>`
+        },
+        'achievements': { 
+            container: '#achievement-entries',
+            button: '#add-achievement',
+            entry: `<div id="achievement-entries">
+                        <div class="achievement-entry">
+                            <input type="text" name="achievement" placeholder="Achievement">
+                            <button type="button" class="remove-entry">Remove</button>
+                        </div>
+                    </div>`
+        }
+    };
+
+    Object.entries(sections).forEach(([key, config]) => {
+        const container = document.querySelector(config.container);
+        const addBtn = document.querySelector(config.button);
+        
+        addBtn.addEventListener('click', () => {
+            const newEntry = document.createElement('div');
+            newEntry.innerHTML = config.entry;
+            container.appendChild(newEntry);
+            updatePreview();
+        });
+    });
+    
+    // Generic remove handler
+    document.querySelectorAll('.form-section').forEach(section => {
+        section.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-entry')) {
+                e.target.closest('.work-entry, .education-entry, .skill-entry, .project-entry, .achievement-entry').remove();
+                updatePreview();
+            }
+        });
+    });
 
     // Handle Image Upload
     document.getElementById('profile-picture').addEventListener('change', function (event) {
@@ -39,23 +113,56 @@ document.addEventListener("DOMContentLoaded", function () {
         const sectionsData = {};
 
         form.querySelectorAll(".form-section").forEach(section => {
-            const title = section.querySelector("h2").textContent.replace(/\*/g, "").trim();
+            const title = section.querySelector("h2").textContent.replace('*', "").trim();
             const inputs = Array.from(section.querySelectorAll("input, textarea"))
                 .filter(input => input.value.trim() !== "")
                 .map(input => input.value);
             
-            // Handle certificate fields separately
-            if (title === "Certifications") {
-                const certs = Array.from(section.querySelectorAll(".certificate-entry"))
-                    .map(entry => {
-                        const name = entry.querySelector('input[type="text"]').value;
-                        const link = entry.querySelector('input[type="url"]').value;
-                        return link ? `<a href="${link}">${name}</a>` : name;
-                    });
-                if (certs.length > 0) sectionsData[title] = certs.join('<br>');
-            }
-            else if (inputs.length > 0 || ["Education", "Languages"].includes(title)) {
-                sectionsData[title] = inputs.join('\n');
+            switch(title) {
+                case 'Work Experience':
+                    sectionsData[title] = Array.from(section.querySelectorAll('.work-entry')).map(entry => ({
+                        job: entry.querySelector('[name="job_title"]').value,
+                        company: entry.querySelector('[name="company"]').value,
+                        dates: entry.querySelector('[name="work_dates"]').value,
+                        description: entry.querySelector('[name="work_description"]').value
+                    }));
+                    break;
+                case 'Certifications':
+                    const certs = Array.from(section.querySelectorAll(".certificate-entry"))
+                        .map(entry => {
+                            const name = entry.querySelector('input[type="text"]').value;
+                            const link = entry.querySelector('input[type="url"]').value;
+                            return link ? `<a href="${link}">${name}</a>` : name;
+                        });
+                    if (certs.length > 0) sectionsData[title] = certs.join('<br>');
+                    break;
+                case 'Education':
+                    sectionsData[title] = Array.from(section.querySelectorAll('.education-entry')).map(entry => ({
+                        degree: entry.querySelector('[name="degree"]').value,
+                        institution: entry.querySelector('[name="institution"]').value,
+                        dates: entry.querySelector('[name="education_dates"]').value,
+                        details: entry.querySelector('[name="education_detials"]').value
+                    }));
+                    break;
+                case 'Skills':
+                    sectionsData[title] = Array.from(section.querySelectorAll('.skill-entry')).map(entry => ({
+                        skill: entry.querySelector('[name="skill"]').value
+                    }));
+                    break;
+                case 'Projects':
+                    sectionsData[title] = Array.from(section.querySelectorAll('.project-entry')).map(entry => ({
+                        title: entry.querySelector('[name="project_title"]').value,
+                        link: entry.querySelector('[name="project_link"]').value,
+                        description: entry.querySelector('[name="project_description"]').value
+                    }));
+                    break;
+                case 'Achievements':
+                    sectionsData[title] = Array.from(section.querySelectorAll('.achievement-entry')).map(entry => ({
+                        achievement: entry.querySelector('[name="achievement"]').value
+                    }));
+                    break;
+                default:
+                    pass;
             }
         });
 
@@ -90,10 +197,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 ${data.github ? `<p><strong>GitHub:</strong> ${data.github}</p>` : ''}
             </div>
 
-            ${Object.entries(data.sections).map(([title, content]) => `
-                <div class="section">
-                    <h2>${title}</h2>
-                    <div class="content">${content.replace(/\n/g, '</div><div class="content">')}</div>
+            ${data.sections['Work Experience']?.map(exp => `
+                <div class="experience-item">
+                    <h3>${exp.job}</h3>
+                    <p>${exp.company} | ${exp.dates}</p>
+                    <p>${exp.description}</p>
+                </div>
+            `).join('')}
+
+            ${data.sections['Education']?.map(exp => `
+                <div class="education-item">
+                    <h3>${exp.degree}</h3>
+                    <p>${exp.institution} | ${exp.dates}</p>
+                    <p>${exp.details}</p>
+                </div>
+            `).join('')}
+
+            ${data.sections['Skills']?.map(exp => `
+                <div class="skills-item">
+                    <h3>${exp.skill}</h3>
+                </div>
+            `).join('')}
+
+            ${data.sections['Projects']?.map(exp => `
+                <div class="projects-item">
+                    <h3>${exp.title}</h3>
+                    <p>${exp.link}</p>
+                    <p>${exp.description}</p>
+                </div>
+            `).join('')}
+
+            ${data.sections['Achievements']?.map(exp => `
+                <div class="achievements-item">
+                    <h3>${exp.achievement}</h3>
                 </div>
             `).join('')}
         `;
@@ -293,13 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000); 
 });
 
-
-
-
-
-
 // particle-js library logic...........................
-
 
 particlesJS("particles-js", {
     particles: {
@@ -323,14 +453,3 @@ particlesJS("particles-js", {
     },
     retina_detect: true
 });
-
-
-
-
-
-
-
-
-
-
-
