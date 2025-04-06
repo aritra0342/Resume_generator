@@ -35,7 +35,7 @@
       <a href="landing-page.html">Home</a>
       <a href="index.html" class="active">Create Resume</a>
       <a href="#" target="_blank">About</a>
-      <a href="#" target="_blank">Contact</a>
+      <a href="#" id="contactLink">Contact</a>
       <a href="../pages/Register.html"><i class="fa-solid fa-user"></i> Register</a>
     </div>
 
@@ -96,6 +96,54 @@
       </div>
     </div>
   </footer>
+
+
+
+  <!-- Contact Popover...................... -->
+<div id="contactPopover" class="popover-box">
+  <div class="popover-arrow"></div>
+  <button class="close-btn" id="closePopover">&times;</button>
+  <div class="popover-content">
+    <h4>Contact Us</h4>
+    <p><strong>Email:</strong> contact@example.com</p>
+    <p><strong>Phone:</strong> +91 9876543210</p>    <!--its a random number given....-->
+    <p><strong>Location:</strong> Kolkata, India</p>
+  </div>
+</div>
+
+
+
+
+ <!--The java script code written right here for the contaat popover-->
+
+<script>
+  const contactLink = document.getElementById('contactLink');
+  const popover = document.getElementById('contactPopover');
+  const closeBtn = document.getElementById('closePopover');
+
+  contactLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    const rect = contactLink.getBoundingClientRect();
+
+    popover.style.display = 'block';
+    popover.style.top = `${rect.bottom + window.scrollY + 10}px`;
+    popover.style.left = `${rect.left + window.scrollX}px`;
+  });
+
+  // Close when clicking the close button....................................
+  closeBtn.addEventListener('click', function () {
+    popover.style.display = 'none';
+  });
+
+  // Close when clicking outside...................................
+  document.addEventListener('click', function (e) {
+    if (!popover.contains(e.target) && e.target !== contactLink) {
+      popover.style.display = 'none';
+    }
+  });
+</script>
+
+
 
 
 
