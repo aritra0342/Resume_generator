@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         degree: entry.querySelector('[name="degree"]').value,
                         institution: entry.querySelector('[name="institution"]').value,
                         dates: entry.querySelector('[name="education_dates"]').value,
-                        details: entry.querySelector('[name="education_detials"]').value
+                        details: entry.querySelector('[name="education_details"]').value
                     }));
                     break;
                 case 'Skills':
@@ -161,8 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         achievement: entry.querySelector('[name="achievement"]').value
                     }));
                     break;
-                default:
-                    pass;
             }
         });
 
