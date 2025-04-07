@@ -94,7 +94,7 @@ form.sign-in-form {
     line-height: 1;
     font-weight: 600;
     font-size: 1.1rem;
-    color: #333;
+    color:white;
 }
 
 .input-field input::placeholder {
@@ -448,3 +448,48 @@ form.sign-in-form {
     background-color: #555;
     border-radius: 5px;
 }
+
+
+ /*Styling applied on social icons.........................................................  */
+
+ .social-media{
+    margin-top: 10px;
+ }
+ .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #333;
+    background: #fff;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  
+  .social-icon:hover {
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+ 
+  .social-icon:nth-child(1):hover {
+    background: #1877f2; /* Facebook */
+  }
+  
+  .social-icon:nth-child(2):hover {
+    background: #1da1f2; /* Twitter */
+  }
+  
+  .social-icon:nth-child(3):hover {
+    background: #db4437; /* Google */
+  }
+  
+  .social-icon:nth-child(4):hover {
+    background: #0077b5; /* LinkedIn */
+  }
+  
