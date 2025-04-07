@@ -1,8 +1,8 @@
-# 🚀 Resume Resume Creator - Build Professional Resumes Effortlessly 
+<img src="images/loggo.svg" alt="Logo" />
+
+# 🚀 Resume Creator - Build Professional Resumes Effortlessly 
 
 A modern web application to create, customize, and download professional resumes with real-time previews. Perfect for job seekers and developers!
-
-<img src="images/loggo.svg" alt="Logo" />
 
 ---
 
