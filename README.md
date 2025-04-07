@@ -1,4 +1,4 @@
-<img src="images/loggo.svg" alt="Logo" />
+<img src="images/resume logo.svg" alt="Logo" />
 
 # 🚀 Resume Creator - Build Professional Resumes Effortlessly 
 
