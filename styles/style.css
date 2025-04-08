@@ -1390,3 +1390,48 @@ footer {
     flex-wrap: wrap;
   }
 }
+
+
+
+
+/*Form section is fixed......... */
+.form-section {
+  width: 100%; 
+  max-width: 600px;
+  box-sizing: border-box; 
+  margin-bottom: 20px; 
+  padding: 16px; 
+  background-color:rgba(243, 233, 233, 0.792);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.resume-builder{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px;
+}
+
+.form-section{
+  flex: 1;
+  max-width: 600px;
+}
+
+.preview-container{
+  flex: 1;
+  max-width: 600px;
+  background: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.form-header{
+  width: 597px;
+  position: relative;
+  left: 53px;
+  bottom: 2px;
+  border-radius: 8px;
+  background-color:rgba(243, 233, 233, 0.792);
+}
