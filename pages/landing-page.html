@@ -34,7 +34,7 @@
     <div class="navbar-links">
       <a href="landing-page.html">Home</a>
       <a href="index.html" class="active">Create Resume</a>
-      <a href="#" target="_blank">About</a>
+      <a class="about-btn" onclick="toggleAboutPopup()">About</a>
       <a href="#" id="contactLink">Contact</a>
       <a href="../pages/Register.html"><i class="fa-solid fa-user"></i> Register</a>
     </div>
@@ -228,6 +228,46 @@
       document.getElementById('sideNavBar').classList.toggle('open')
     }
   </script>
+
+
+
+<!-- About Popover card....................................-->
+<div id="overlay" class="overlay hidden"></div>
+
+<div id="aboutPopup" class="about-popup hidden">
+  <div class="about-content">
+    <h2>About This App</h2>
+    <p>
+      A sleek web app to create, customize, and download professional resumes with real-time previews. Ideal for job seekers and developers.
+
+      Key Highlights:
+      
+      ⚡ Live Preview & Auto-Save
+      
+      🎨 Light/Dark Theme Toggle
+      
+      🧩 Drag & Drop Sections
+      
+      📷 Profile Picture Upload
+      
+      📥 Export as PDF / Print
+      
+      📱 Fully Responsive & Interactive UI
+    </p>
+    <button class="close-about" onclick="toggleAboutPopup()">Close</button>
+  </div>
+</div>
+
+<script>
+  function toggleAboutPopup() {
+  const popup = document.getElementById("aboutPopup");
+  const overlay = document.getElementById("overlay");
+
+  popup.classList.toggle("hidden");
+  overlay.classList.toggle("hidden");
+}
+
+</script>
 
 
 
