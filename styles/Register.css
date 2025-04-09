@@ -64,8 +64,7 @@ form.sign-in-form {
     font-size: 2.2rem;
     color: #131415;
     margin-bottom: 10px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: italic;
+    font-weight: 600;
 }
 
 .input-field {
@@ -151,6 +150,8 @@ form.sign-in-form {
     width: 100%;
     transition: transform 1.1s ease-in-out;
     transition-delay: 0.4s;
+    margin-right: 80px;
+    margin-top: -136px;
 }
 
 .panel {
