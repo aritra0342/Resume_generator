@@ -1,0 +1,53 @@
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    width: 60%;
+}
+
+.contact-form input, .contact-form textarea{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.contact-form input:active, .contact-form textarea:active{
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+.landing-container{
+    text-align: left;
+}
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em !important;
+}
+
+.buttons{
+    display: flex;
+    gap: 1em;
+}
+
+.buttons button{
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 0.4em 1em;
+    border-radius: 0.6em;
+    font-size: 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttons button:hover{
+    background: #ffffff1b;
+}
+
+.data p{
+    font-size: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
