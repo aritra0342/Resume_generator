@@ -47,7 +47,8 @@
        
         <div class="navbar-links">
             <a class="about-btn" onclick="toggleAboutPopup()">About</a>
-            <a href="#" target="_blank">Contact</a>
+            <a class="contact-btn" onclick="toggleContactPopup()">Contact</a>
+
             <button class="theme-toggle">🌙 Dark Mode</button>
         </div>
 
@@ -288,6 +289,31 @@
           <button class="close-about" onclick="toggleAboutPopup()">Close</button>
         </div>
       </div>
+
+
+
+
+      <div id="contactOverlay" class="overlay hidden"></div>
+
+<div id="contactPopup" class="about-popup hidden">
+  <div class="about-content">
+    <h2>Contact Us</h2>
+    <p>
+      Have questions, feedback, or suggestions about this Professional Resume Builder? <br />
+      We're happy to help!
+    </p>
+    <div style="text-align:centre; margin-top: 1rem; line-height: 1.8;">
+      📧 <strong>Email:</strong> contact@example.com<br />
+      📞 <strong>Phone:</strong> +91 9876543210<br />
+      📍 <strong>Location:</strong> Kolkata, India
+    </div>
+    <button class="close-about" onclick="toggleContactPopup()">Close</button>
+  </div>
+</div>
+
+
+   
+      
     
     
 </body>
