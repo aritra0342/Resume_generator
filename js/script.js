@@ -451,3 +451,31 @@ particlesJS("particles-js", {
     },
     retina_detect: true
 });
+
+
+
+
+
+
+function toggleAboutPopup() {
+    const popup = document.getElementById("aboutPopup");
+    const overlay = document.getElementById("overlay");
+    const main = document.getElementById("mainContent");
+  
+    popup.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
+    main.classList.toggle("blurred");
+  }
+    
+
+  function toggleContactPopup() {
+    const popup = document.getElementById("contactPopup");
+    const overlay = document.getElementById("overlay");
+    const main = document.getElementById("mainContent");
+  
+    popup.classList.toggle("hidden");
+    overlay.classList.toggle("hidden");
+    main.classList.toggle("blurred");
+  }
+  
+
