@@ -32,7 +32,7 @@ A modern web application to create, customize, and download professional resumes
 - Modern web browser (Chrome/Firefox/Safari)
 - Internet connection (for CDN resources)
 
-###Installation
+### Installation
 1. Clone the repository:
 ```bash
 git clone https://github.com/aritra0342/resume-creator.git
@@ -127,6 +127,6 @@ git push origin feature/amazing-feature
 
 ---
 
-Made with ❤️ by [Gaurav Karakoti](https://github.com/GauravKarakoti) 
+Made with ❤️ by All the Contributors!!!
 
 Let your career take flight with Resume Creator! ✈️
