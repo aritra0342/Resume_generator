@@ -477,5 +477,7 @@ function toggleAboutPopup() {
     overlay.classList.toggle("hidden");
     main.classList.toggle("blurred");
   }
+
+  
   
 
