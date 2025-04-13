@@ -481,3 +481,23 @@ function toggleAboutPopup() {
   
   
 
+  const scrollContainer = document.querySelector('.container');
+  const backToTopBtn = document.getElementById('back-to-top');
+  
+  
+  scrollContainer.addEventListener('scroll', () => {
+      if (scrollContainer.scrollTop > 200) {
+          backToTopBtn.style.display = 'block';
+      } else {
+          backToTopBtn.style.display = 'none';
+      }
+  });
+  
+  
+  backToTopBtn.addEventListener('click', () => {
+      scrollContainer.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
+  
