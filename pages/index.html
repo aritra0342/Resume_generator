@@ -46,7 +46,7 @@
 
        
         <div class="navbar-links">
-            <a href="#" target="_blank">About</a>
+            <a class="about-btn" onclick="toggleAboutPopup()">About</a>
             <a href="#" target="_blank">Contact</a>
             <button class="theme-toggle">🌙 Dark Mode</button>
         </div>
@@ -54,6 +54,8 @@
 
 
     </nav>
+
+    <div id="mainContent">
 
 
     <section class="resume-builder">
@@ -224,6 +226,9 @@
 
     <button id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
 
+
+</div>
+
     <footer class="footer">
         <div class="footer-container">
           <!-- Layer 1 -->
@@ -256,6 +261,34 @@
 
 
     <script src="../js/script.js"></script>
+
+    <!-- About Popup & Blur Background -->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <div id="aboutPopup" class="about-popup hidden">
+        <div class="about-content">
+          <h2>About This App</h2>
+          <p>
+            A sleek web app to create, customize, and download professional resumes with real-time previews. Ideal for job seekers and developers.
+      
+            Key Highlights:
+            
+            ⚡ Live Preview & Auto-Save
+            
+            🎨 Light/Dark Theme Toggle
+            
+            🧩 Drag & Drop Sections
+            
+            📷 Profile Picture Upload
+            
+            📥 Export as PDF / Print
+            
+            📱 Fully Responsive & Interactive UI
+          </p>
+          <button class="close-about" onclick="toggleAboutPopup()">Close</button>
+        </div>
+      </div>
+    
     
 </body>
 
