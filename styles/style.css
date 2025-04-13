@@ -25,6 +25,24 @@ body {
   
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1cba13, #00ff84);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #3cc643, #85ef5f);
+}
+
 body, html{
   margin: 0;
   padding: 0;
@@ -349,7 +367,7 @@ input:focus, textarea:focus {
   width: 100%;
 }
 
-/* Form Container */
+
 .resume-builder {
   display: flex;
   justify-content: space-between;
@@ -363,7 +381,32 @@ input:focus, textarea:focus {
   flex: 1;
   min-width: 45%;
   max-width: 50%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: 8px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #34c759 #e6ffe6; 
 }
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #34c759;
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #28a745;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #e6ffe6; 
+  border-radius: 10px;
+}
+
 
 .preview-container {
   width: 45%;
